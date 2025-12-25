@@ -3,18 +3,19 @@ import { renderHook, waitFor } from '@testing-library/react';
 import { useModelSelection } from '@/hooks/useModelSelection';
 
 // Mock Next.js navigation with dynamic params
-let mockSearchParams = new URLSearchParams();
 const mockPush = jest.fn();
+const mockUseSearchParams = jest.fn();
 
 jest.mock('next/navigation', () => ({
     useRouter: () => ({ push: mockPush }),
-    useSearchParams: () => mockSearchParams,
+    useSearchParams: () => mockUseSearchParams(),
 }));
 
 describe('F2: Model Selector - URL Routing', () => {
     beforeEach(() => {
-        mockSearchParams = new URLSearchParams();
+        localStorage.clear();
         mockPush.mockClear();
+        mockUseSearchParams.mockReturnValue(new URLSearchParams());
     });
 
     it('F2.4.1 URL updates with model ID', async () => {
@@ -28,7 +29,10 @@ describe('F2: Model Selector - URL Routing', () => {
     });
 
     it('F2.4.2 Direct URL navigation loads correct model', async () => {
-        mockSearchParams.set('model', '550e8400-e29b-41d4-a716-446655440003');
+        const params = new URLSearchParams();
+        params.set('model', '550e8400-e29b-41d4-a716-446655440003');
+        mockUseSearchParams.mockReturnValue(params);
+
         const { result } = renderHook(() => useModelSelection());
 
         await waitFor(() => {
@@ -36,6 +40,30 @@ describe('F2: Model Selector - URL Routing', () => {
         });
     });
 
-    it.skip('F2.4.3 Invalid model ID shows 404', () => { });
-    it.skip('F2.4.4 URL params override localStorage', () => { });
+    it('F2.4.3 Invalid model ID handling', async () => {
+        const params = new URLSearchParams();
+        params.set('model', '550e8400-e29b-41d4-a716-invalid');
+        mockUseSearchParams.mockReturnValue(params);
+
+        const { result } = renderHook(() => useModelSelection());
+
+        await waitFor(() => {
+            // Default model
+            expect(result.current.selectedModelId).toBe('550e8400-e29b-41d4-a716-446655440001');
+        });
+    });
+
+    it('F2.4.4 URL params override localStorage', async () => {
+        localStorage.setItem('aviation_platform_selected_model', '550e8400-e29b-41d4-a716-446655440002');
+
+        const params = new URLSearchParams();
+        params.set('model', '550e8400-e29b-41d4-a716-446655440003');
+        mockUseSearchParams.mockReturnValue(params);
+
+        const { result } = renderHook(() => useModelSelection());
+
+        await waitFor(() => {
+            expect(result.current.selectedModelId).toBe('550e8400-e29b-41d4-a716-446655440003');
+        });
+    });
 });

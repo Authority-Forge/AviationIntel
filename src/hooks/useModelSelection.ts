@@ -54,6 +54,23 @@ export function useModelSelection() {
                 setLoading(false);
             }
         }
+
+        // Listen for storage events (cross-tab sync)
+        const handleStorageChange = (e: StorageEvent) => {
+            if (e.key === STORAGE_KEY && e.newValue) {
+                // Validate new value
+                const validation = ModelSelectionSchema.safeParse(e.newValue);
+                if (validation.success && aircraftModels.find(m => m.id === validation.data)) {
+                    setSelectedModelId(validation.data);
+                }
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        return () => {
+            isMounted.current = false;
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, [searchParams]);
 
     // Handle selection change
