@@ -1,0 +1,4646 @@
+[
+  {
+    "id": "F1.1.1",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Happy",
+    "description": "Valid email + password registers successfully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.2",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Happy",
+    "description": "Redirects to dashboard after registration",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.3",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Rejects invalid email format",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.4",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Rejects password < 8 characters",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.5",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Rejects password without number",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.6",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Rejects password without uppercase",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.7",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Rejects duplicate email",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.8",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Handles special characters in email",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.9",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Edge",
+    "description": "Trims whitespace from email",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.10",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "UI",
+    "description": "Shows loading state during submission",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.11",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "UI",
+    "description": "Disables button during submission",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.1.12",
+    "feature": "F1: Authentication",
+    "category": "Registration",
+    "type": "Error",
+    "description": "Handles network timeout gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.1",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Happy",
+    "description": "Valid credentials login successfully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.2",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Happy",
+    "description": "Redirects to dashboard after login",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.3",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Edge",
+    "description": "Rejects invalid email",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.4",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Edge",
+    "description": "Rejects wrong password",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.5",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Edge",
+    "description": "Rejects non-existent user",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.6",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Edge",
+    "description": "Case-insensitive email matching",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.7",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Security",
+    "description": "Handles SQL injection attempt",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.8",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Security",
+    "description": "Rate limits after 5 failed attempts",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.9",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "UI",
+    "description": "Shows loading state during submission",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.2.10",
+    "feature": "F1: Authentication",
+    "category": "Login",
+    "type": "Error",
+    "description": "Handles network error gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.1",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Happy",
+    "description": "Session persists on page refresh",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.2",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Edge",
+    "description": "Session expires after timeout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.3",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Edge",
+    "description": "Session refreshes before expiry",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.4",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Edge",
+    "description": "Concurrent sessions allowed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.5",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Happy",
+    "description": "Session invalidated on logout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.6",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Security",
+    "description": "Cookie set as httpOnly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.7",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Security",
+    "description": "Cookie set as secure in production",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.8",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "Error",
+    "description": "Handles corrupted session token",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.9",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "UI",
+    "description": "Redirects to login on expired session",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.3.10",
+    "feature": "F1: Authentication",
+    "category": "Session",
+    "type": "UI",
+    "description": "Clears local state on session end",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.1",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Happy",
+    "description": "Logout clears session",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.2",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Happy",
+    "description": "Redirects to login after logout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.3",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Edge",
+    "description": "Protected routes inaccessible after logout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.4",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Edge",
+    "description": "Back button doesn't restore session",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.5",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Edge",
+    "description": "Logout from multiple tabs",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.6",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Error",
+    "description": "Logout during network error",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.7",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "UI",
+    "description": "Logout button visible when authenticated",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.8",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "UI",
+    "description": "Logout button hidden when unauthenticated",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.9",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "UI",
+    "description": "Confirmation dialog on logout (optional)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.4.10",
+    "feature": "F1: Authentication",
+    "category": "Logout",
+    "type": "Security",
+    "description": "Server session invalidated",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.1",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Happy",
+    "description": "Dashboard accessible when authenticated",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.2",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Happy",
+    "description": "Dashboard redirects to login when not authenticated",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.3",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Security",
+    "description": "API routes return 401 when not authenticated",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.4",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Security",
+    "description": "Middleware checks session on every request",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.5",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Edge",
+    "description": "Deep link preserved after login redirect",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.6",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Edge",
+    "description": "Query params preserved after login redirect",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.7",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "UI",
+    "description": "Loading state shown during auth check",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.8",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Error",
+    "description": "Handles middleware timeout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.9",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Edge",
+    "description": "Static assets accessible without auth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F1.5.10",
+    "feature": "F1: Authentication",
+    "category": "Protected Routes",
+    "type": "Edge",
+    "description": "API health endpoint accessible without auth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.1",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Happy",
+    "description": "Renders all available models",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.2",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Happy",
+    "description": "Shows model name and manufacturer",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.3",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Edge",
+    "description": "Handles 0 models (empty state)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.4",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Edge",
+    "description": "Handles 100+ models (virtualized)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.5",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Edge",
+    "description": "Sorts models alphabetically",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.6",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Edge",
+    "description": "Groups models by manufacturer",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.7",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "UI",
+    "description": "Shows loading skeleton while fetching",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.8",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "Error",
+    "description": "Handles API error gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.9",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "A11y",
+    "description": "Accessible via keyboard",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.1.10",
+    "feature": "F2: Model Selector",
+    "category": "Dropdown Rendering",
+    "type": "A11y",
+    "description": "Screen reader announces options",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.1",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Happy",
+    "description": "Clicking model updates selection",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.2",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Happy",
+    "description": "Selection updates dashboard data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.3",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Edge",
+    "description": "Keyboard enter selects model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.4",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Edge",
+    "description": "Keyboard arrow navigates options",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.5",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Edge",
+    "description": "Escape closes dropdown",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.6",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Edge",
+    "description": "Click outside closes dropdown",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.7",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "UI",
+    "description": "Shows checkmark on selected model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.8",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Edge",
+    "description": "Handles rapid selection changes",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.9",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "Edge",
+    "description": "Debounces selection events",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.2.10",
+    "feature": "F2: Model Selector",
+    "category": "Selection",
+    "type": "UI",
+    "description": "Selection preserved during data loading",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.1",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Happy",
+    "description": "Selection persists on page refresh",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.2",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Happy",
+    "description": "Selection stored in localStorage",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.3",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Error",
+    "description": "Handles corrupted localStorage",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.4",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Edge",
+    "description": "Falls back to default if stored model deleted",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.5",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Edge",
+    "description": "Syncs selection across tabs",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.6",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Edge",
+    "description": "Clears selection on logout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.7",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Error",
+    "description": "Handles localStorage quota exceeded",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.8",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Edge",
+    "description": "Private browsing mode fallback",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.9",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Edge",
+    "description": "Migration from old storage format",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.3.10",
+    "feature": "F2: Model Selector",
+    "category": "Persistence",
+    "type": "Edge",
+    "description": "Server-side preference override",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.1",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Happy",
+    "description": "URL updates with model ID",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.2",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Happy",
+    "description": "Direct URL navigation loads correct model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.3",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "Invalid model ID shows 404",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.4",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "URL params override localStorage",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.5",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "Browser back button works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.6",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "Browser forward button works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.7",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Happy",
+    "description": "Shareable URL loads correct model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.8",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "URL encoding handles special characters",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.9",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "History state managed correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.4.10",
+    "feature": "F2: Model Selector",
+    "category": "URL Routing",
+    "type": "Edge",
+    "description": "No duplicate history entries",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.1",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Happy",
+    "description": "Defaults to Challenger 350 on first visit",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.2",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Happy",
+    "description": "Default used when no stored preference",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.3",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Edge",
+    "description": "Default used when stored model unavailable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.4",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Error",
+    "description": "Handles missing default in database",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.5",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Edge",
+    "description": "Admin can configure default model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.6",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "UI",
+    "description": "Default model loads immediately",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.7",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "UI",
+    "description": "No flash of incorrect model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.8",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Perf",
+    "description": "Default model data pre-fetched",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.9",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Perf",
+    "description": "SSR returns default model data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F2.5.10",
+    "feature": "F2: Model Selector",
+    "category": "Default Selection",
+    "type": "Edge",
+    "description": "Hydration matches server render",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.1",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Displays asking price vs market %",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.2",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Displays residual value strength",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.3",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Displays market activity score",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.4",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Formats large numbers with commas",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.5",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Handles negative percentages",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.6",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Handles zero values",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.7",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Error",
+    "description": "Handles null/undefined values",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.8",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Rounds to appropriate decimals",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.9",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "UI",
+    "description": "Shows currency symbol for prices",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.1.10",
+    "feature": "F3: Metric Cards",
+    "category": "Data Display",
+    "type": "UI",
+    "description": "Shows percentage symbol for rates",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.1",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Happy",
+    "description": "Shows up arrow for positive trend",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.2",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Happy",
+    "description": "Shows down arrow for negative trend",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.3",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Happy",
+    "description": "Shows stable icon for no change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.4",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "UI",
+    "description": "Green color for positive trends",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.5",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "UI",
+    "description": "Red color for negative trends",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.6",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "UI",
+    "description": "Gray color for stable trends",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.7",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Edge",
+    "description": "Trend calculated from historical data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.8",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Edge",
+    "description": "Handles insufficient historical data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.9",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Edge",
+    "description": "Trend comparison period configurable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.10",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "UI",
+    "description": "Trend animation on change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.2.11",
+    "feature": "F3: Metric Cards",
+    "category": "Trend Indicators",
+    "type": "Edge",
+    "description": "Inverted color for below-market (good for buyers)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.1",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip appears on hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.2",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip contains metric definition",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.3",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip dismisses on mouse leave",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.4",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "A11y",
+    "description": "Tooltip accessible via keyboard focus",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.5",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip position adjusts to viewport",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.6",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip doesn't overflow screen",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.7",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Touch devices show on tap",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.8",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Multiple tooltips don't stack",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.9",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "A11y",
+    "description": "Tooltip content is screen reader friendly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.3.10",
+    "feature": "F3: Metric Cards",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Tooltip has proper z-index",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.1",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "Happy",
+    "description": "Shows skeleton while loading",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.2",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "UI",
+    "description": "Skeleton matches card dimensions",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.3",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "UI",
+    "description": "Skeleton animates smoothly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.4",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "Happy",
+    "description": "Data replaces skeleton on load",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.5",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "CLS",
+    "description": "No layout shift on data load",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.6",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "Error",
+    "description": "Error state shown on fetch failure",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.7",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "Error",
+    "description": "Retry button on error state",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.8",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "Edge",
+    "description": "Stale data shown during refetch",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.9",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "Edge",
+    "description": "Loading state during model switch",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.4.10",
+    "feature": "F3: Metric Cards",
+    "category": "Loading States",
+    "type": "A11y",
+    "description": "Loading indicator is accessible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.1",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "3 cards in row on desktop",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.2",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "2 cards in row on tablet",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.3",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "1 card in row on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.4",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Card height remains consistent",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.5",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Text truncates gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.6",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "A11y",
+    "description": "Touch targets meet minimum size",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.7",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "Perf",
+    "description": "Resizing doesn't cause reflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.8",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Cards maintain aspect ratio",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.9",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print layout is readable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F3.5.10",
+    "feature": "F3: Metric Cards",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "High DPI screens render crisply",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.1",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Happy",
+    "description": "Renders histogram bars",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.2",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Happy",
+    "description": "Bar height proportional to count",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.3",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Happy",
+    "description": "X-axis shows price ranges",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.4",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Happy",
+    "description": "Y-axis shows count",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.5",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Edge",
+    "description": "Handles 0 listings (empty state)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.6",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Edge",
+    "description": "Handles 1000+ listings",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.7",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Error",
+    "description": "Handles negative prices (error)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.8",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Edge",
+    "description": "Bucket sizes calculated dynamically",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.9",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "Edge",
+    "description": "Outliers handled gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.10",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "UI",
+    "description": "Chart renders within container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.1.11",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Histogram Rendering",
+    "type": "UI",
+    "description": "Axis labels don't overlap",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.1",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "Happy",
+    "description": "Tooltip shows on bar hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.2",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "Happy",
+    "description": "Tooltip shows price range",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.3",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "Happy",
+    "description": "Tooltip shows count",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.4",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "UI",
+    "description": "Tooltip follows cursor",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.5",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "UI",
+    "description": "Bar highlights on hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.6",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "Edge",
+    "description": "Touch devices show tooltip on tap",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.7",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "Happy",
+    "description": "Tooltip dismisses on leave",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.8",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "A11y",
+    "description": "Keyboard navigation works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.9",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "A11y",
+    "description": "Focus ring visible on bars",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.2.10",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Interactivity",
+    "type": "Edge",
+    "description": "Click bar filters table (optional)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.1",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Happy",
+    "description": "Vertical line shows average price",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.2",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Happy",
+    "description": "Label shows average value",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.3",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Happy",
+    "description": "Marker positioned correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.4",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "UI",
+    "description": "Marker visible above bars",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.5",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "UI",
+    "description": "Marker color contrasts with bars",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.6",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Edge",
+    "description": "Marker label doesn't overlap axis",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.7",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Edge",
+    "description": "Marker updates on data change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.8",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "UI",
+    "description": "Marker animated on change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.9",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Edge",
+    "description": "Marker visible on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.3.10",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Average Price Marker",
+    "type": "Edge",
+    "description": "Marker tooltip on hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.1",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Chart resizes with container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.2",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Bars scale proportionally",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.3",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Labels resize appropriately",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.4",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Mobile shows fewer x-axis labels",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.5",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Orientation change handled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.6",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Perf",
+    "description": "Window resize debounced",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.7",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "CLS",
+    "description": "No layout shift during resize",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.8",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Touch scrolling doesn't interfere",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.9",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Chart maintains aspect ratio",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.10",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print renders correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.4.11",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "SVG exports cleanly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.1",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Happy",
+    "description": "Chart updates on model change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.2",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "UI",
+    "description": "Animation on data update",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.3",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "UI",
+    "description": "Loading state during update",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.4",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Error",
+    "description": "Error state on failed update",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.5",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "Stale data shown during refetch",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.6",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "Handles rapid model switches",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.7",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Perf",
+    "description": "Cancels pending requests on switch",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.8",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Perf",
+    "description": "Memory cleaned up on unmount",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.9",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "SSR hydration matches client",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F4.5.10",
+    "feature": "F4: Price Distribution Chart",
+    "category": "Data Updates",
+    "type": "Perf",
+    "description": "Chart re-renders efficiently",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.1",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Happy",
+    "description": "Renders price trend line",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.2",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Happy",
+    "description": "X-axis shows dates",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.3",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Happy",
+    "description": "Y-axis shows prices",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.4",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "UI",
+    "description": "Line smoothly connects points",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.5",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Edge",
+    "description": "Handles single data point",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.6",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Edge",
+    "description": "Handles 100+ data points",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.7",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Edge",
+    "description": "Handles gaps in data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.8",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "i18n",
+    "description": "Date format is locale-aware",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.9",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "UI",
+    "description": "Price format includes currency",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.10",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Edge",
+    "description": "Axis ticks calculated dynamically",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.1.11",
+    "feature": "F5: Price Trend Chart",
+    "category": "Line Rendering",
+    "type": "Edge",
+    "description": "Zero baseline handling",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.1",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Happy",
+    "description": "Shaded area shows min/max range",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.2",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Happy",
+    "description": "Band follows trend line",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.3",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "UI",
+    "description": "Band color has transparency",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.4",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "UI",
+    "description": "Band doesn't obscure line",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.5",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Edge",
+    "description": "Tooltip shows min/max on hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.6",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Error",
+    "description": "Band handles missing min/max",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.7",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Edge",
+    "description": "Band handles min = max",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.8",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Edge",
+    "description": "Band toggle on/off",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.9",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "UI",
+    "description": "Legend indicates band meaning",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.2.10",
+    "feature": "F5: Price Trend Chart",
+    "category": "Range Band",
+    "type": "Edge",
+    "description": "Band scales with zoom",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.1",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Happy",
+    "description": "Markers show on event dates",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.2",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "UI",
+    "description": "Marker icon distinguishes type",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.3",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Happy",
+    "description": "Tooltip shows event description",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.4",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Edge",
+    "description": "Multiple events on same date",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.5",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "UI",
+    "description": "Markers don't overlap line",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.6",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Edge",
+    "description": "Markers clickable for details",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.7",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Edge",
+    "description": "Handles 0 events",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.8",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Edge",
+    "description": "Handles 20+ events",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.9",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Edge",
+    "description": "Markers visible at all zoom levels",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.10",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "Edge",
+    "description": "Event filter options",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.3.11",
+    "feature": "F5: Price Trend Chart",
+    "category": "Event Markers",
+    "type": "A11y",
+    "description": "Keyboard accessible markers",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.1",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Happy",
+    "description": "Zoom in on date range",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.2",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Happy",
+    "description": "Zoom out to full range",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.3",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Happy",
+    "description": "Pan left/right",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.4",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Edge",
+    "description": "Pinch zoom on touch",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.5",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Edge",
+    "description": "Mouse wheel zoom",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.6",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Edge",
+    "description": "Zoom limit prevents over-zoom",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.7",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "UI",
+    "description": "Reset zoom button",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.8",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "Edge",
+    "description": "Zoom state preserved on update",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.9",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "UI",
+    "description": "Smooth zoom animation",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.4.10",
+    "feature": "F5: Price Trend Chart",
+    "category": "Zoom/Pan",
+    "type": "A11y",
+    "description": "Zoom accessible via keyboard",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.1",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Chart resizes with container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.2",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Mobile shows simplified axis",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.3",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Touch scrolling works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.4",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "No interference with page scroll",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.5",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Legend repositions on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.6",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Tooltips fit viewport",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.7",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Perf",
+    "description": "Chart loads progressively",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.8",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Perf",
+    "description": "Resize throttled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.9",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print mode disables interactivity",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F5.5.10",
+    "feature": "F5: Price Trend Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "High DPI rendering",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.1",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Happy",
+    "description": "Renders bars for each bucket",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.2",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Happy",
+    "description": "X-axis shows DOM ranges",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.3",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Happy",
+    "description": "Y-axis shows aircraft count",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.4",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Happy",
+    "description": "Bars ordered by bucket",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.5",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Edge",
+    "description": "Handles empty buckets",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.6",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Edge",
+    "description": "Handles single bucket",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.7",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Edge",
+    "description": "Handles 20+ buckets",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.8",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "Edge",
+    "description": "Bar width calculated dynamically",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.9",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "UI",
+    "description": "Bar color consistent",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.1.10",
+    "feature": "F6: Days on Market Chart",
+    "category": "Bar Rendering",
+    "type": "UI",
+    "description": "Grid lines visible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.1",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "Happy",
+    "description": "Bucket labels readable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.2",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "UI",
+    "description": "Labels don't overlap",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.3",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "Edge",
+    "description": "Labels rotate on overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.4",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "Happy",
+    "description": "Average DOM line labeled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.5",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "Edge",
+    "description": "Count labels above bars",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.6",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "Edge",
+    "description": "Labels truncate gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.7",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "UI",
+    "description": "Label font scales with chart",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.8",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "A11y",
+    "description": "Labels accessible to screen readers",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.9",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "Edge",
+    "description": "Custom bucket labels supported",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.2.10",
+    "feature": "F6: Days on Market Chart",
+    "category": "Labels",
+    "type": "i18n",
+    "description": "RTL language support",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.1",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip on bar hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.2",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip shows range and count",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.3",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip shows percentage",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.4",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Tooltip positions correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.5",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Touch tooltip works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.6",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Multiple bar hover transition",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.7",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip content customizable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.8",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Tooltip style matches brand",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.9",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Tooltip z-index correct",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.3.10",
+    "feature": "F6: Days on Market Chart",
+    "category": "Tooltips",
+    "type": "A11y",
+    "description": "Tooltip accessible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.1",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Chart resizes with container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.2",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Bars resize proportionally",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.3",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Mobile hides some labels",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.4",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Horizontal scroll on overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.5",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "A11y",
+    "description": "Touch targets adequate",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.6",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "CLS",
+    "description": "No layout shift on resize",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.7",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Orientation change handled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.8",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Consistent padding",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.9",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print layout correct",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.4.10",
+    "feature": "F6: Days on Market Chart",
+    "category": "Responsiveness",
+    "type": "Perf",
+    "description": "Chart reflows efficiently",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.1",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Happy",
+    "description": "Chart updates on model change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.2",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "UI",
+    "description": "Animation on data update",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.3",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "UI",
+    "description": "Loading skeleton shown",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.4",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Error",
+    "description": "Error state displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.5",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "Stale-while-revalidate",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.6",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "Rapid switches handled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.7",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Perf",
+    "description": "Memory leak prevention",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.8",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "SSR renders correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.9",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Edge",
+    "description": "Hydration mismatch prevented",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F6.5.10",
+    "feature": "F6: Days on Market Chart",
+    "category": "Data Updates",
+    "type": "Perf",
+    "description": "Rerender count optimized",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.1",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Happy",
+    "description": "Renders grouped bars per metric",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.2",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Happy",
+    "description": "Each model has distinct color",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.3",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Happy",
+    "description": "X-axis shows metrics",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.4",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Happy",
+    "description": "Y-axis scales to data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.5",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Happy",
+    "description": "Handles 2 models",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.6",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Edge",
+    "description": "Handles 5+ models",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.7",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "Error",
+    "description": "Handles missing model data",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.8",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "UI",
+    "description": "Bar groups have spacing",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.9",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "A11y",
+    "description": "Colors are accessible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.1.10",
+    "feature": "F7: Comparative Chart",
+    "category": "Grouped Bar Rendering",
+    "type": "A11y",
+    "description": "Patterns for color blindness",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.1",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Happy",
+    "description": "Price metric displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.2",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Happy",
+    "description": "Residual value displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.3",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Happy",
+    "description": "DOM metric displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.4",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Happy",
+    "description": "Fleet % displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.5",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Edge",
+    "description": "Different scales handled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.6",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Edge",
+    "description": "Normalized comparison option",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.7",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Edge",
+    "description": "Metric toggle visibility",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.8",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Edge",
+    "description": "Metric sort order",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.9",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "Edge",
+    "description": "Custom metrics supported",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.2.10",
+    "feature": "F7: Comparative Chart",
+    "category": "Metrics",
+    "type": "UI",
+    "description": "Metric units displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.1",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Happy",
+    "description": "Legend shows all models",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.2",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Happy",
+    "description": "Legend matches bar colors",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.3",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Happy",
+    "description": "Click legend toggles model",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.4",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "UI",
+    "description": "Hidden model bars disappear",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.5",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Edge",
+    "description": "At least one model required",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.6",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Edge",
+    "description": "Legend wraps on overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.7",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Edge",
+    "description": "Legend position configurable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.8",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "A11y",
+    "description": "Keyboard toggles legend items",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.9",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Edge",
+    "description": "Legend state persisted",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.3.10",
+    "feature": "F7: Comparative Chart",
+    "category": "Legend",
+    "type": "Edge",
+    "description": "Legend tooltip on truncation",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.1",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip on bar hover",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.2",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip shows model + metric",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.3",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Happy",
+    "description": "Tooltip shows value",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.4",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip shows % difference",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.5",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip for grouped bars",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.6",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Touch tooltip works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.7",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Tooltip formatted correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.8",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "Edge",
+    "description": "Tooltip doesn't overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.9",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "UI",
+    "description": "Tooltip has proper z-index",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.4.10",
+    "feature": "F7: Comparative Chart",
+    "category": "Tooltips",
+    "type": "A11y",
+    "description": "Screen reader announces values",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.1",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Chart resizes correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.2",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Mobile stacks bars vertically",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.3",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Touch interact works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.4",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Labels fit container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.5",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Legend moves below on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.6",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "No horizontal overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.7",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Resize animation smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.8",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print renders all models",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.9",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "High DPI support",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F7.5.10",
+    "feature": "F7: Comparative Chart",
+    "category": "Responsiveness",
+    "type": "Perf",
+    "description": "Performance on resize",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.1",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "Happy",
+    "description": "Renders list of signals",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.2",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "Happy",
+    "description": "Signal label displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.3",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "Happy",
+    "description": "Signal value shown (bullish/bearish/neutral)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.4",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "UI",
+    "description": "Visual indicator matches value",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.5",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "UI",
+    "description": "Green for bullish",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.6",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "UI",
+    "description": "Red for bearish",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.7",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "UI",
+    "description": "Gray for neutral",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.8",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "Edge",
+    "description": "Handles empty signals list",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.9",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "Edge",
+    "description": "Handles 20+ signals",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.10",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "Edge",
+    "description": "Signals sorted consistently",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.1.11",
+    "feature": "F8: Signal Panel",
+    "category": "Signal Display",
+    "type": "UI",
+    "description": "Signal icon/emoji displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.1",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "Happy",
+    "description": "Confidence score displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.2",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "UI",
+    "description": "Score shown as percentage",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.3",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "UI",
+    "description": "Progress bar for score",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.4",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "Edge",
+    "description": "Handles 0% confidence",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.5",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "Edge",
+    "description": "Handles 100% confidence",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.6",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "UI",
+    "description": "Color gradient by confidence",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.7",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "Edge",
+    "description": "Tooltip explains confidence",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.8",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "UI",
+    "description": "Score animation on load",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.9",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "A11y",
+    "description": "Score accessible to screen readers",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.2.10",
+    "feature": "F8: Signal Panel",
+    "category": "Confidence Scores",
+    "type": "Error",
+    "description": "Handles null confidence",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.1",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Happy",
+    "description": "Buyer/Seller toggle visible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.2",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Happy",
+    "description": "Default to buyer perspective",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.3",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Happy",
+    "description": "Toggle switches signals shown",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.4",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Edge",
+    "description": "Only relevant signals displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.5",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Edge",
+    "description": "Toggle state persisted",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.6",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "A11y",
+    "description": "Toggle is accessible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.7",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "A11y",
+    "description": "Keyboard toggle works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.8",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "UI",
+    "description": "Toggle animation smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.9",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Edge",
+    "description": "Both perspectives shows all",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.10",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Edge",
+    "description": "URL reflects perspective",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.3.11",
+    "feature": "F8: Signal Panel",
+    "category": "Perspective Toggle",
+    "type": "Edge",
+    "description": "Empty state per perspective",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.1",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Happy",
+    "description": "Short/Long term toggle visible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.2",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Happy",
+    "description": "Default to short term",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.3",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Happy",
+    "description": "Toggle filters signals",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.4",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Edge",
+    "description": "Combined with perspective filter",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.5",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Edge",
+    "description": "Toggle state persisted",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.6",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "A11y",
+    "description": "Toggle is accessible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.7",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "A11y",
+    "description": "Keyboard toggle works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.8",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "UI",
+    "description": "Toggle animation smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.9",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Edge",
+    "description": "Both timeframes shows all",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.10",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Edge",
+    "description": "URL reflects timeframe",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.4.11",
+    "feature": "F8: Signal Panel",
+    "category": "Timeframe Toggle",
+    "type": "Edge",
+    "description": "Empty state per timeframe",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.1",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Panel fits container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.2",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Scrollable on overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.3",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Toggles stack on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.4",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "A11y",
+    "description": "Touch targets adequate",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.5",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Signal items wrap correctly",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.6",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Confidence bar scales",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.7",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "No horizontal overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.8",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print layout readable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.9",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Collapsible on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.10",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Loading skeleton matches layout",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F8.5.11",
+    "feature": "F8: Signal Panel",
+    "category": "Responsiveness",
+    "type": "Error",
+    "description": "Error state handled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.1",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Renders all columns",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.2",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Serial number displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.3",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Year displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.4",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Hours displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.5",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "UI",
+    "description": "Price formatted as currency",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.6",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "DOM displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.7",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Location displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.8",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Happy",
+    "description": "Status badge displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.9",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Handles null values gracefully",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.10",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Handles 0 listings (empty)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.1.11",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Data Display",
+    "type": "Edge",
+    "description": "Handles 1000+ listings",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.1",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Happy",
+    "description": "Click header sorts column",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.2",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Happy",
+    "description": "Ascending sort first click",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.3",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Happy",
+    "description": "Descending sort second click",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.4",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Edge",
+    "description": "Third click removes sort",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.5",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "UI",
+    "description": "Sort indicator visible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.6",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Edge",
+    "description": "Multi-column sort (shift+click)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.7",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Edge",
+    "description": "Sort persists on pagination",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.8",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Edge",
+    "description": "Sort persists on model change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.9",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "A11y",
+    "description": "Keyboard sort triggers",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.10",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Edge",
+    "description": "Null values sort last",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.2.11",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Sorting",
+    "type": "Edge",
+    "description": "Sort URL encoded",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.1",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Happy",
+    "description": "Default 10 items per page",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.2",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Happy",
+    "description": "Page selector works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.3",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Happy",
+    "description": "Prev/Next buttons work",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.4",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Happy",
+    "description": "Page size options (10, 25, 50)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.5",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Edge",
+    "description": "Handles last page with fewer items",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.6",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "UI",
+    "description": "Shows total count",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.7",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Edge",
+    "description": "Jump to page input",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.8",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "A11y",
+    "description": "Keyboard navigation",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.9",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Edge",
+    "description": "Page persists on sort",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.10",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Edge",
+    "description": "Page resets on model change",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.3.11",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Pagination",
+    "type": "Edge",
+    "description": "URL encodes page state",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.1",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "UI",
+    "description": "Active badge green",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.2",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "UI",
+    "description": "Pending badge yellow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.3",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "UI",
+    "description": "Sold badge gray",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.4",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "UI",
+    "description": "Withdrawn badge red",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.5",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "A11y",
+    "description": "Badge accessible colors",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.6",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "Edge",
+    "description": "Badge tooltip explains status",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.7",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "Edge",
+    "description": "Filter by status",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.8",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "Edge",
+    "description": "Status count shown",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.9",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "Error",
+    "description": "Unknown status handled",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.10",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "UI",
+    "description": "Status icon + text",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.4.11",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Status Badges",
+    "type": "UI",
+    "description": "Status change animation",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.1",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Happy",
+    "description": "Table scrolls horizontally on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.2",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Sticky first column",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.3",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Column resize handles",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.4",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Hide columns on mobile",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.5",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Touch scroll smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.6",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Row height consistent",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.7",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Alternating row colors",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.8",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Hover row highlight",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.9",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Edge",
+    "description": "Print shows all columns",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.10",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "UI",
+    "description": "Loading skeleton matches",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F9.5.11",
+    "feature": "F9: Aircraft Listings Table",
+    "category": "Responsiveness",
+    "type": "Error",
+    "description": "Error state displayed",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.1",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "Happy",
+    "description": "3 metric cards in row",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.2",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "Happy",
+    "description": "2 charts per row",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.3",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "Happy",
+    "description": "Signal panel + table side by side",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.4",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "Happy",
+    "description": "Header fixed on scroll",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.5",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "Edge",
+    "description": "Sidebar visible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.6",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "Edge",
+    "description": "Min-width breakpoint works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.7",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "UI",
+    "description": "Max content width applied",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.8",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "UI",
+    "description": "Consistent padding/margins",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.9",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "UI",
+    "description": "Grid gaps consistent",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.1.10",
+    "feature": "F10: Responsive Layout",
+    "category": "Desktop Layout",
+    "type": "UI",
+    "description": "Scroll behavior smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.1",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Happy",
+    "description": "2 metric cards in row",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.2",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Happy",
+    "description": "Charts stack or 2 per row",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.3",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Happy",
+    "description": "Signal panel full width",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.4",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Happy",
+    "description": "Table scrolls horizontally",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.5",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Edge",
+    "description": "Header responsive",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.6",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Edge",
+    "description": "Sidebar collapses to hamburger",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.7",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "A11y",
+    "description": "Touch targets adequate",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.8",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Edge",
+    "description": "Portrait orientation works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.9",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "Edge",
+    "description": "Landscape orientation works",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.2.10",
+    "feature": "F10: Responsive Layout",
+    "category": "Tablet Layout",
+    "type": "UI",
+    "description": "Breakpoint transitions smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.1",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "Happy",
+    "description": "Single column stack",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.2",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "Happy",
+    "description": "Metric cards stack",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.3",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "Happy",
+    "description": "Charts full width",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.4",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "Happy",
+    "description": "Table scrollable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.5",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "UI",
+    "description": "Model selector accessible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.6",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "Edge",
+    "description": "Bottom navigation (optional)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.7",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "Edge",
+    "description": "Touch scrolling smooth",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.8",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "UI",
+    "description": "No horizontal overflow",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.9",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "UI",
+    "description": "Font sizes readable",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.3.10",
+    "feature": "F10: Responsive Layout",
+    "category": "Mobile Layout",
+    "type": "A11y",
+    "description": "Buttons have adequate size",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.1",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Happy",
+    "description": "Charts resize with container",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.2",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Happy",
+    "description": "Aspect ratio maintained",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.3",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Edge",
+    "description": "Labels scale appropriately",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.4",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Edge",
+    "description": "Tooltips fit viewport",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.5",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "UI",
+    "description": "No distortion on resize",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.6",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Perf",
+    "description": "Resize debounced",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.7",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Perf",
+    "description": "No layout shift (CLS)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.8",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Edge",
+    "description": "Legend repositions",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.9",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Edge",
+    "description": "Interactive even when small",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.4.10",
+    "feature": "F10: Responsive Layout",
+    "category": "Chart Responsiveness",
+    "type": "Edge",
+    "description": "Minimum size enforced",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.1",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Happy",
+    "description": "Tap works like click",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.2",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Edge",
+    "description": "Long press shows tooltip",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.3",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Happy",
+    "description": "Swipe scrolls page",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.4",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Edge",
+    "description": "Pinch zoom on charts",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.5",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Edge",
+    "description": "Double tap zoom",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.6",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Edge",
+    "description": "Gesture conflicts prevented",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.7",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "UI",
+    "description": "Touch feedback visible",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.8",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Edge",
+    "description": "Pull to refresh (optional)",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.9",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "A11y",
+    "description": "Touch targets 44px minimum",
+    "steps": [],
+    "passes": false
+  },
+  {
+    "id": "F10.5.10",
+    "feature": "F10: Responsive Layout",
+    "category": "Touch Interaction",
+    "type": "Edge",
+    "description": "No ghost clicks",
+    "steps": [],
+    "passes": false
+  }
+]
