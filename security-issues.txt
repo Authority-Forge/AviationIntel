@@ -1,0 +1,13 @@
+# Security Issues Log
+
+## Session 2 (Dec 25, 2024)
+
+### Resolved Issues
+- **Input Validation**: Implemented strict Zod schemas for all model selection inputs (URL params, localStorage).
+- **Memory Leaks**: Added `isMounted` ref check in `useModelSelection` to prevent state updates on unmounted components.
+- **Data Exposure**: Verified no PII or sensitive system info is logged to console. Errors are generic.
+- **Storage Safety**: Added try-catch blocks around localStorage operations to handle quota errors gracefully.
+
+### Verification
+- Static Analysis: Manual code review passed.
+- Runtime Analysis: Verified via unit tests with mock inputs.
