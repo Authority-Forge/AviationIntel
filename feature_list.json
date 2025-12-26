@@ -6,7 +6,7 @@
     "type": "Happy",
     "description": "Valid email + password registers successfully",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.2",
@@ -15,7 +15,7 @@
     "type": "Happy",
     "description": "Redirects to dashboard after registration",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.3",
@@ -24,7 +24,7 @@
     "type": "Edge",
     "description": "Rejects invalid email format",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.4",
@@ -33,7 +33,7 @@
     "type": "Edge",
     "description": "Rejects password < 8 characters",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.5",
@@ -42,7 +42,7 @@
     "type": "Edge",
     "description": "Rejects password without number",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.6",
@@ -51,7 +51,7 @@
     "type": "Edge",
     "description": "Rejects password without uppercase",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.7",
@@ -60,7 +60,7 @@
     "type": "Edge",
     "description": "Rejects duplicate email",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.8",
@@ -69,7 +69,7 @@
     "type": "Edge",
     "description": "Handles special characters in email",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.9",
@@ -78,7 +78,7 @@
     "type": "Edge",
     "description": "Trims whitespace from email",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.10",
@@ -87,7 +87,7 @@
     "type": "UI",
     "description": "Shows loading state during submission",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.11",
@@ -96,7 +96,7 @@
     "type": "UI",
     "description": "Disables button during submission",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.1.12",
@@ -105,7 +105,7 @@
     "type": "Error",
     "description": "Handles network timeout gracefully",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.1",
@@ -114,7 +114,7 @@
     "type": "Happy",
     "description": "Valid credentials login successfully",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.2",
@@ -123,7 +123,7 @@
     "type": "Happy",
     "description": "Redirects to dashboard after login",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.3",
@@ -132,7 +132,7 @@
     "type": "Edge",
     "description": "Rejects invalid email",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.4",
@@ -141,7 +141,7 @@
     "type": "Edge",
     "description": "Rejects wrong password",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.5",
@@ -150,7 +150,7 @@
     "type": "Edge",
     "description": "Rejects non-existent user",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.6",
@@ -159,7 +159,7 @@
     "type": "Edge",
     "description": "Case-insensitive email matching",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.7",
@@ -168,7 +168,7 @@
     "type": "Security",
     "description": "Handles SQL injection attempt",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.8",
@@ -177,7 +177,7 @@
     "type": "Security",
     "description": "Rate limits after 5 failed attempts",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.9",
@@ -186,7 +186,7 @@
     "type": "UI",
     "description": "Shows loading state during submission",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.2.10",
@@ -195,7 +195,7 @@
     "type": "Error",
     "description": "Handles network error gracefully",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.1",
@@ -204,7 +204,7 @@
     "type": "Happy",
     "description": "Session persists on page refresh",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.2",
@@ -213,7 +213,7 @@
     "type": "Edge",
     "description": "Session expires after timeout",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.3",
@@ -222,7 +222,7 @@
     "type": "Edge",
     "description": "Session refreshes before expiry",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.4",
@@ -231,7 +231,7 @@
     "type": "Edge",
     "description": "Concurrent sessions allowed",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.5",
@@ -240,7 +240,7 @@
     "type": "Happy",
     "description": "Session invalidated on logout",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.6",
@@ -249,7 +249,7 @@
     "type": "Security",
     "description": "Cookie set as httpOnly",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.7",
@@ -258,7 +258,7 @@
     "type": "Security",
     "description": "Cookie set as secure in production",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.8",
@@ -267,7 +267,7 @@
     "type": "Error",
     "description": "Handles corrupted session token",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.9",
@@ -276,7 +276,7 @@
     "type": "UI",
     "description": "Redirects to login on expired session",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.3.10",
@@ -285,7 +285,7 @@
     "type": "UI",
     "description": "Clears local state on session end",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.1",
@@ -294,7 +294,7 @@
     "type": "Happy",
     "description": "Logout clears session",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.2",
@@ -303,7 +303,7 @@
     "type": "Happy",
     "description": "Redirects to login after logout",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.3",
@@ -312,7 +312,7 @@
     "type": "Edge",
     "description": "Protected routes inaccessible after logout",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.4",
@@ -321,7 +321,7 @@
     "type": "Edge",
     "description": "Back button doesn't restore session",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.5",
@@ -330,7 +330,7 @@
     "type": "Edge",
     "description": "Logout from multiple tabs",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.6",
@@ -339,7 +339,7 @@
     "type": "Error",
     "description": "Logout during network error",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.7",
@@ -348,7 +348,7 @@
     "type": "UI",
     "description": "Logout button visible when authenticated",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.8",
@@ -357,7 +357,7 @@
     "type": "UI",
     "description": "Logout button hidden when unauthenticated",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.9",
@@ -366,7 +366,7 @@
     "type": "UI",
     "description": "Confirmation dialog on logout (optional)",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.4.10",
@@ -375,7 +375,7 @@
     "type": "Security",
     "description": "Server session invalidated",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.1",
@@ -384,7 +384,7 @@
     "type": "Happy",
     "description": "Dashboard accessible when authenticated",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.2",
@@ -393,7 +393,7 @@
     "type": "Happy",
     "description": "Dashboard redirects to login when not authenticated",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.3",
@@ -402,7 +402,7 @@
     "type": "Security",
     "description": "API routes return 401 when not authenticated",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.4",
@@ -411,7 +411,7 @@
     "type": "Security",
     "description": "Middleware checks session on every request",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.5",
@@ -420,7 +420,7 @@
     "type": "Edge",
     "description": "Deep link preserved after login redirect",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.6",
@@ -429,7 +429,7 @@
     "type": "Edge",
     "description": "Query params preserved after login redirect",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.7",
@@ -438,7 +438,7 @@
     "type": "UI",
     "description": "Loading state shown during auth check",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.8",
@@ -447,7 +447,7 @@
     "type": "Error",
     "description": "Handles middleware timeout",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.9",
@@ -456,7 +456,7 @@
     "type": "Edge",
     "description": "Static assets accessible without auth",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F1.5.10",
@@ -465,7 +465,7 @@
     "type": "Edge",
     "description": "API health endpoint accessible without auth",
     "steps": [],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F2.1.1",

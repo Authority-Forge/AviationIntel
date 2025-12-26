@@ -1,0 +1,31 @@
+
+> aviation-platform@0.1.0 test
+> jest src/components/auth/__tests__/register-form.test.tsx
+
+FAIL src/components/auth/__tests__/register-form.test.tsx
+  F1: Registration Form
+    ΓêÜ F1.1.1: Valid email + password registers successfully (842 ms)
+    ├ù F1.1.3: Rejects invalid email format (1342 ms)
+    ΓêÜ F1.1.4-6: Rejects weak passwords (507 ms)
+    ΓêÜ F1.1.11: Disables button during submission (8 ms)
+
+  ΓùÅ F1: Registration Form ΓÇ║ F1.1.3: Rejects invalid email format
+
+    Timed out in waitFor.
+
+      59 |         await userEvent.click(screen.getByRole('button', { name: /create account/i }));
+      60 |
+    > 61 |         await waitFor(async () => {
+         |                      ^
+      62 |             expect(await screen.findByText(/invalid email address/i)).toBeInTheDocument();
+      63 |         });
+      64 |         expect(mockSignUp).not.toHaveBeenCalled();
+
+      at waitForWrapper (node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (src/components/auth/__tests__/register-form.test.tsx:61:22)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        3.907 s, estimated 4 s
+Ran all test suites matching src/components/auth/__tests__/register-form.test.tsx.
