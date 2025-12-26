@@ -36,9 +36,11 @@ export default async function DashboardPage() {
             fleetAgeData = fleet;
             charterData = charter;
             operatorData = operator;
+        } else {
+            console.warn('Database not connected. Using mock data.');
         }
     } catch (error) {
-        console.warn('Supabase Connection Failed: Using Mock Data Fallback', sanitizeError(error));
+        console.warn('Supabase Data Fetch Failed: Using Mock Data Fallback', sanitizeError(error));
         // Proceed with mocks
     }
 
