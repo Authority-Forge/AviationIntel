@@ -14,6 +14,13 @@ CREATE TABLE aircraft_models (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Enable RLS
+ALTER TABLE aircraft_models ENABLE ROW LEVEL SECURITY;
+
+-- Create Policies
+CREATE POLICY "Allow public read access" ON aircraft_models FOR SELECT USING (true);
+
+
 -- 2. AGGREGATED METRICS (Time-Series)
 -- Stores annual/monthly data points for line/bar charts (Utilization, Price Trends)
 CREATE TABLE aggregated_metrics (
@@ -25,6 +32,13 @@ CREATE TABLE aggregated_metrics (
     metadata JSONB DEFAULT '{}'::JSONB, -- e.g., { "volume": 12 } for price trends
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+-- Enable RLS
+ALTER TABLE aggregated_metrics ENABLE ROW LEVEL SECURITY;
+
+-- Create Policies
+CREATE POLICY "Allow public read access" ON aggregated_metrics FOR SELECT USING (true);
+
 
 -- 3. DISTRIBUTIONS (Snapshot Data)
 -- Stores categorical data for pie/bar charts (Fleet Age, Charter Mix, Operator Concentration)
@@ -39,6 +53,13 @@ CREATE TABLE distributions (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Enable RLS
+ALTER TABLE distributions ENABLE ROW LEVEL SECURITY;
+
+-- Create Policies
+CREATE POLICY "Allow public read access" ON distributions FOR SELECT USING (true);
+
+
 -- 4. SIGNAL STATES (Risk & Insights)
 -- Stores calculated market signals (e.g., "Low Residual Risk", "Stable Liquidity")
 CREATE TABLE signal_states (
@@ -50,6 +71,13 @@ CREATE TABLE signal_states (
     description TEXT,
     last_updated TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+-- Enable RLS
+ALTER TABLE signal_states ENABLE ROW LEVEL SECURITY;
+
+-- Create Policies
+CREATE POLICY "Allow public read access" ON signal_states FOR SELECT USING (true);
+
 
 -- INDICES for Performance
 CREATE INDEX idx_metrics_model_date ON aggregated_metrics(model_id, period_date);
