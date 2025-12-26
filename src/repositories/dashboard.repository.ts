@@ -6,24 +6,41 @@ import {
     CharterMetricSchema,
     OperatorMetricSchema,
     AircraftListingSchema,
+    MarketMetricSchema,
     type UtilizationMetric,
     type MonthlyUtilization,
     type FleetAgeMetric,
     type CharterMetric,
     type OperatorMetric,
-    type AircraftListing
+    type AircraftListing,
+    type MarketMetric
 } from '@/lib/schemas';
 
 export interface DashboardRepository {
+    checkHealth(): Promise<boolean>;
     getUtilization(modelId: string): Promise<UtilizationMetric[]>;
     getMonthlyUtilization(modelId: string): Promise<MonthlyUtilization[]>;
     getFleetAge(modelId: string): Promise<FleetAgeMetric[]>;
     getCharterMix(modelId: string): Promise<CharterMetric[]>;
     getOperatorConcentration(modelId: string): Promise<OperatorMetric[]>;
     getMarketListings(modelId: string): Promise<AircraftListing[]>;
+    getMarketMetrics(modelId: string): Promise<MarketMetric | null>;
 }
 
 export class SupabaseDashboardRepository implements DashboardRepository {
+    async checkHealth(): Promise<boolean> {
+        try {
+            // Lightweight check to verify connection
+            const { error } = await supabase
+                .from('aggregated_metrics')
+                .select('*', { count: 'exact', head: true });
+
+            return !error;
+        } catch {
+            return false;
+        }
+    }
+
     async getUtilization(modelId: string): Promise<UtilizationMetric[]> {
         const { data, error } = await supabase
             .from('aggregated_metrics')
@@ -111,11 +128,7 @@ export class SupabaseDashboardRepository implements DashboardRepository {
     }
 
     async getMarketListings(modelId: string): Promise<AircraftListing[]> {
-        // We'll join with aircraft_models to get the model name if needed,
-        // but for now we assume we just fetch from listings table.
-        // Also note: the schema defined 'serial_number' (snake_case) in DB,
-        // but TS type expects camelCase. We need to map it.
-
+        // Join with aircraft_models to get the model name
         const { data, error } = await supabase
             .from('listings')
             .select(`
@@ -139,12 +152,41 @@ export class SupabaseDashboardRepository implements DashboardRepository {
             id: row.id,
             serialNumber: row.serial_number,
             year: row.year,
-            model: row.aircraft_models?.name || 'Unknown Model', // Join result
+            model: row.aircraft_models?.name || 'Unknown Model',
             price: Number(row.price),
             hours: Number(row.hours),
             location: row.location,
             status: row.status,
             daysOnMarket: row.days_on_market
         }));
+    }
+
+    async getMarketMetrics(modelId: string): Promise<MarketMetric | null> {
+        const { data, error } = await supabase
+            .from('market_metrics')
+            .select('*')
+            .eq('model_id', modelId)
+            .order('period_date', { ascending: false })
+            .limit(1)
+            .single();
+
+        if (error) {
+            if (error.code === 'PGRST116') return null; // No rows found
+            throw error;
+        }
+
+        // Map snake_case DB columns to camelCase schema fields
+        return MarketMetricSchema.parse({
+            id: data.id,
+            modelId: data.model_id,
+            date: data.period_date,
+            askingPriceVsMarket: Number(data.asking_price_vs_market),
+            residualValueStrength: Number(data.residual_value_strength),
+            marketActivityScore: Number(data.market_activity_score),
+            avgAskingPrice: Number(data.avg_asking_price),
+            avgDaysOnMarket: Number(data.avg_days_on_market),
+            activeListings: Number(data.active_listings),
+            trendDirection: data.trend_direction
+        });
     }
 }

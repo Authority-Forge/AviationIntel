@@ -28,12 +28,7 @@ export default function SignalPanel() {
     // Filter logic
     const filteredSignals = MOCK_SIGNALS.filter(signal =>
         (signal.perspective === 'both' || signal.perspective === perspective) &&
-        // For MVP, showing all timeframes if matches perspective, or filtering by timeframe if desired.
-        // Let's implement full filtering as per PRD.
-        (timeframe === 'short' || signal.timeframe === timeframe || signal.timeframe === 'short')
-        // Note: simplifying logic to show relevant signals. 
-        // If long term selected, show short+long? Or just long? Usually both.
-        // If short term, only short.
+        signal.timeframe === timeframe
     );
 
     // Color mapping
@@ -54,21 +49,40 @@ export default function SignalPanel() {
                 <h2 className="text-2xl font-bold text-gray-900">Risk & Transition Signals</h2>
 
                 {/* Filters */}
-                <div className="flex bg-gray-100 p-1 rounded-lg">
-                    <button
-                        onClick={() => setPerspective('buyer')}
-                        className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${perspective === 'buyer' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
-                            }`}
-                    >
-                        Buyer
-                    </button>
-                    <button
-                        onClick={() => setPerspective('seller')}
-                        className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${perspective === 'seller' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
-                            }`}
-                    >
-                        Seller
-                    </button>
+                <div className="flex gap-4">
+                    <div className="flex bg-gray-100 p-1 rounded-lg">
+                        <button
+                            onClick={() => setPerspective('buyer')}
+                            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${perspective === 'buyer' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                                }`}
+                        >
+                            Buyer
+                        </button>
+                        <button
+                            onClick={() => setPerspective('seller')}
+                            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${perspective === 'seller' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                                }`}
+                        >
+                            Seller
+                        </button>
+                    </div>
+
+                    <div className="flex bg-gray-100 p-1 rounded-lg">
+                        <button
+                            onClick={() => setTimeframe('short')}
+                            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${timeframe === 'short' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                                }`}
+                        >
+                            Short Term
+                        </button>
+                        <button
+                            onClick={() => setTimeframe('long')}
+                            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${timeframe === 'long' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                                }`}
+                        >
+                            Long Term
+                        </button>
+                    </div>
                 </div>
             </div>
 
