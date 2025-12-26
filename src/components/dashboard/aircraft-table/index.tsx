@@ -3,39 +3,20 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils/format';
+import { AircraftListing } from '@/lib/schemas';
 
-interface AircraftListing {
-    id: string;
-    serialNumber: string;
-    year: number;
-    model: string;
-    price: number;
-    hours: number;
-    location: string;
-    status: 'active' | 'pending' | 'sold' | 'withdrawn';
-    daysOnMarket: number;
+interface AircraftTableProps {
+    listings?: AircraftListing[];
 }
 
-// Mock data for initial implementation (will be replaced by props/hook)
-const MOCK_LISTINGS: AircraftListing[] = [
-    { id: '1', serialNumber: '20638', year: 2017, model: 'Challenger 350', price: 18500000, hours: 1450, location: 'USA (NC)', status: 'active', daysOnMarket: 45 },
-    { id: '2', serialNumber: '20712', year: 2018, model: 'Challenger 350', price: 19200000, hours: 1100, location: 'USA (TX)', status: 'active', daysOnMarket: 12 },
-    { id: '3', serialNumber: '20555', year: 2015, model: 'Challenger 350', price: 16800000, hours: 2200, location: 'UK', status: 'pending', daysOnMarket: 120 },
-    { id: '4', serialNumber: '20801', year: 2019, model: 'Challenger 350', price: 21500000, hours: 850, location: 'USA (FL)', status: 'active', daysOnMarket: 5 },
-    { id: '5', serialNumber: '20444', year: 2014, model: 'Challenger 350', price: 15900000, hours: 3100, location: 'Germany', status: 'sold', daysOnMarket: 180 },
-    { id: '6', serialNumber: '20902', year: 2021, model: 'Challenger 350', price: 23500000, hours: 450, location: 'USA (CA)', status: 'active', daysOnMarket: 3 },
-    { id: '7', serialNumber: '20610', year: 2016, model: 'Challenger 350', price: 17200000, hours: 1900, location: 'UAE', status: 'active', daysOnMarket: 95 },
-    { id: '8', serialNumber: '20755', year: 2018, model: 'Challenger 350', price: 19800000, hours: 980, location: 'USA (NY)', status: 'active', daysOnMarket: 22 },
-];
-
-export default function AircraftTable() {
+export default function AircraftTable({ listings = [] }: AircraftTableProps) {
     const [sortField, setSortField] = useState<keyof AircraftListing>('daysOnMarket');
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 5;
 
     // Sorting logic
-    const sortedData = [...MOCK_LISTINGS].sort((a, b) => {
+    const sortedData = [...listings].sort((a, b) => {
         if (a[sortField] < b[sortField]) return sortDirection === 'asc' ? -1 : 1;
         if (a[sortField] > b[sortField]) return sortDirection === 'asc' ? 1 : -1;
         return 0;
@@ -69,6 +50,22 @@ export default function AircraftTable() {
             </span>
         );
     };
+
+    if (listings.length === 0) {
+        return (
+            <section className="bg-white rounded-lg shadow-sm border border-gray-100 break-inside-avoid overflow-hidden">
+                <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+                    <div>
+                        <h2 className="text-2xl font-bold text-gray-900">Market Listings</h2>
+                        <p className="text-sm text-gray-600 mt-1">Current available inventory</p>
+                    </div>
+                </div>
+                <div className="p-6 text-center text-gray-500">
+                    No listings available.
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className="bg-white rounded-lg shadow-sm border border-gray-100 break-inside-avoid overflow-hidden">
@@ -138,7 +135,7 @@ export default function AircraftTable() {
                 <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                     <div>
                         <p className="text-sm text-gray-700">
-                            Showing <span className="font-medium">{(currentPage - 1) * pageSize + 1}</span> to <span className="font-medium">{Math.min(currentPage * pageSize, MOCK_LISTINGS.length)}</span> of <span className="font-medium">{MOCK_LISTINGS.length}</span> results
+                            Showing <span className="font-medium">{(currentPage - 1) * pageSize + 1}</span> to <span className="font-medium">{Math.min(currentPage * pageSize, listings.length)}</span> of <span className="font-medium">{listings.length}</span> results
                         </p>
                     </div>
                     <div>

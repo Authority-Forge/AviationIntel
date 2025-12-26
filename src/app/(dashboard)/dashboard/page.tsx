@@ -9,6 +9,7 @@ import {
     charterData as mockCharter,
     operatorData as mockOperator
 } from '@/lib/mock-data/dashboard-data';
+import { AircraftListing } from '@/lib/schemas';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,14 +19,16 @@ export default async function DashboardPage() {
     let fleetAgeData = mockFleet;
     let charterData = mockCharter;
     let operatorData = mockOperator;
+    let marketListings: AircraftListing[] = [];
 
     try {
-        const [util, month, fleet, charter, operator] = await Promise.all([
+        const [util, month, fleet, charter, operator, listings] = await Promise.all([
             dashboardService.getUtilization(),
             dashboardService.getMonthlyUtilization(),
             dashboardService.getFleetAge(),
             dashboardService.getCharterMix(),
-            dashboardService.getOperatorConcentration()
+            dashboardService.getOperatorConcentration(),
+            dashboardService.getMarketListings()
         ]);
 
         // If Supabase returns empty arrays (e.g. no connection or no data), keep mocks for now
@@ -35,10 +38,11 @@ export default async function DashboardPage() {
         if (fleet.length > 0) fleetAgeData = fleet;
         if (charter.length > 0) charterData = charter;
         if (operator.length > 0) operatorData = operator;
+        if (listings.length > 0) marketListings = listings;
 
     } catch (error) {
         console.warn('Supabase Connection Failed: Using Mock Data Fallback', sanitizeError(error));
-        // Proceed with mocks
+        // Proceed with mocks for charts, listings will be empty if failed
     }
 
     return (
@@ -48,6 +52,7 @@ export default async function DashboardPage() {
             fleetAgeData={fleetAgeData}
             charterData={charterData}
             operatorData={operatorData}
+            listings={marketListings}
         />
     );
 }

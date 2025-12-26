@@ -5,11 +5,13 @@ import {
     FleetAgeMetricSchema,
     CharterMetricSchema,
     OperatorMetricSchema,
+    AircraftListingSchema,
     type UtilizationMetric,
     type MonthlyUtilization,
     type FleetAgeMetric,
     type CharterMetric,
-    type OperatorMetric
+    type OperatorMetric,
+    type AircraftListing
 } from '@/lib/schemas';
 
 export interface DashboardRepository {
@@ -18,6 +20,7 @@ export interface DashboardRepository {
     getFleetAge(modelId: string): Promise<FleetAgeMetric[]>;
     getCharterMix(modelId: string): Promise<CharterMetric[]>;
     getOperatorConcentration(modelId: string): Promise<OperatorMetric[]>;
+    getMarketListings(modelId: string): Promise<AircraftListing[]>;
 }
 
 export class SupabaseDashboardRepository implements DashboardRepository {
@@ -104,6 +107,44 @@ export class SupabaseDashboardRepository implements DashboardRepository {
         return data.map(row => OperatorMetricSchema.parse({
             name: row.bucket_label,
             share: Number(row.value)
+        }));
+    }
+
+    async getMarketListings(modelId: string): Promise<AircraftListing[]> {
+        // We'll join with aircraft_models to get the model name if needed,
+        // but for now we assume we just fetch from listings table.
+        // Also note: the schema defined 'serial_number' (snake_case) in DB,
+        // but TS type expects camelCase. We need to map it.
+
+        const { data, error } = await supabase
+            .from('listings')
+            .select(`
+                id,
+                serial_number,
+                year,
+                price,
+                hours,
+                location,
+                status,
+                days_on_market,
+                aircraft_models (
+                    name
+                )
+            `)
+            .eq('model_id', modelId);
+
+        if (error) throw error;
+
+        return data.map((row: any) => AircraftListingSchema.parse({
+            id: row.id,
+            serialNumber: row.serial_number,
+            year: row.year,
+            model: row.aircraft_models?.name || 'Unknown Model', // Join result
+            price: Number(row.price),
+            hours: Number(row.hours),
+            location: row.location,
+            status: row.status,
+            daysOnMarket: row.days_on_market
         }));
     }
 }
