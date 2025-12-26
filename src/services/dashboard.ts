@@ -12,6 +12,10 @@ const MODEL_ID = '550e8400-e29b-41d4-a716-446655440001'; // MVP: Hardcoded for n
 export class DashboardService {
     constructor(private repo: DashboardRepository) {}
 
+    async checkConnection(): Promise<boolean> {
+        return this.repo.checkConnection();
+    }
+
     async getUtilization(): Promise<UtilizationMetric[]> {
         return this.repo.getUtilization(MODEL_ID);
     }

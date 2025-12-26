@@ -13,6 +13,7 @@ import {
 } from '@/lib/schemas';
 
 export interface DashboardRepository {
+    checkConnection(): Promise<boolean>;
     getUtilization(modelId: string): Promise<UtilizationMetric[]>;
     getMonthlyUtilization(modelId: string): Promise<MonthlyUtilization[]>;
     getFleetAge(modelId: string): Promise<FleetAgeMetric[]>;
@@ -21,6 +22,18 @@ export interface DashboardRepository {
 }
 
 export class SupabaseDashboardRepository implements DashboardRepository {
+    async checkConnection(): Promise<boolean> {
+        try {
+            // Lightweight check to verify DB connectivity
+            const { error } = await supabase
+                .from('aggregated_metrics')
+                .select('count', { count: 'exact', head: true });
+            return !error;
+        } catch {
+            return false;
+        }
+    }
+
     async getUtilization(modelId: string): Promise<UtilizationMetric[]> {
         const { data, error } = await supabase
             .from('aggregated_metrics')
