@@ -5,11 +5,13 @@ import {
     FleetAgeMetricSchema,
     CharterMetricSchema,
     OperatorMetricSchema,
+    MarketMetricSchema,
     type UtilizationMetric,
     type MonthlyUtilization,
     type FleetAgeMetric,
     type CharterMetric,
-    type OperatorMetric
+    type OperatorMetric,
+    type MarketMetric
 } from '@/lib/schemas';
 
 export interface DashboardRepository {
@@ -18,6 +20,7 @@ export interface DashboardRepository {
     getFleetAge(modelId: string): Promise<FleetAgeMetric[]>;
     getCharterMix(modelId: string): Promise<CharterMetric[]>;
     getOperatorConcentration(modelId: string): Promise<OperatorMetric[]>;
+    getMarketMetrics(modelId: string): Promise<MarketMetric | null>;
 }
 
 export class SupabaseDashboardRepository implements DashboardRepository {
@@ -105,5 +108,34 @@ export class SupabaseDashboardRepository implements DashboardRepository {
             name: row.bucket_label,
             share: Number(row.value)
         }));
+    }
+
+    async getMarketMetrics(modelId: string): Promise<MarketMetric | null> {
+        const { data, error } = await supabase
+            .from('market_metrics')
+            .select('*')
+            .eq('model_id', modelId)
+            .order('period_date', { ascending: false })
+            .limit(1)
+            .single();
+
+        if (error) {
+             if (error.code === 'PGRST116') return null; // No rows found
+             throw error;
+        }
+
+        // Map snake_case DB columns to camelCase schema fields
+        return MarketMetricSchema.parse({
+            id: data.id,
+            modelId: data.model_id,
+            date: data.period_date,
+            askingPriceVsMarket: Number(data.asking_price_vs_market),
+            residualValueStrength: Number(data.residual_value_strength),
+            marketActivityScore: Number(data.market_activity_score),
+            avgAskingPrice: Number(data.avg_asking_price),
+            avgDaysOnMarket: Number(data.avg_days_on_market),
+            activeListings: Number(data.active_listings),
+            trendDirection: data.trend_direction
+        });
     }
 }

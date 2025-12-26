@@ -9,6 +9,7 @@ import {
     charterData as mockCharter,
     operatorData as mockOperator
 } from '@/lib/mock-data/dashboard-data';
+import { getLatestMetrics } from '@/lib/mock-data/metrics';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,14 +19,17 @@ export default async function DashboardPage() {
     let fleetAgeData = mockFleet;
     let charterData = mockCharter;
     let operatorData = mockOperator;
+    // Fallback mock metric - use a known model ID from mocks
+    let marketMetrics = getLatestMetrics('550e8400-e29b-41d4-a716-446655440001');
 
     try {
-        const [util, month, fleet, charter, operator] = await Promise.all([
+        const [util, month, fleet, charter, operator, metrics] = await Promise.all([
             dashboardService.getUtilization(),
             dashboardService.getMonthlyUtilization(),
             dashboardService.getFleetAge(),
             dashboardService.getCharterMix(),
-            dashboardService.getOperatorConcentration()
+            dashboardService.getOperatorConcentration(),
+            dashboardService.getMarketMetrics()
         ]);
 
         // If Supabase returns empty arrays (e.g. no connection or no data), keep mocks for now
@@ -35,6 +39,7 @@ export default async function DashboardPage() {
         if (fleet.length > 0) fleetAgeData = fleet;
         if (charter.length > 0) charterData = charter;
         if (operator.length > 0) operatorData = operator;
+        if (metrics) marketMetrics = metrics;
 
     } catch (error) {
         console.warn('Supabase Connection Failed: Using Mock Data Fallback', sanitizeError(error));
@@ -48,6 +53,7 @@ export default async function DashboardPage() {
             fleetAgeData={fleetAgeData}
             charterData={charterData}
             operatorData={operatorData}
+            marketMetrics={marketMetrics}
         />
     );
 }
