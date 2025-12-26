@@ -90,3 +90,18 @@ export const getPriceHistory = (modelId: string): PricePoint[] => {
 
     return [];
 }
+
+export const getDaysOnMarketChange = (modelId: string): number => {
+    const sortedMetrics = marketMetrics
+        .filter(m => m.modelId === modelId)
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    if (sortedMetrics.length < 2) return 0;
+
+    const current = sortedMetrics[0].avgDaysOnMarket;
+    const previous = sortedMetrics[1].avgDaysOnMarket;
+
+    if (previous === 0) return 0;
+
+    return ((current - previous) / previous) * 100;
+};

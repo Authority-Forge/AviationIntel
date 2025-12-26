@@ -6,7 +6,7 @@ import MetricCard from './metric-card';
 
 export default function MetricsGrid() {
     const { selectedModelId } = useModelSelection();
-    const { metrics, loading, error } = useMarketMetrics(selectedModelId);
+    const { metrics, daysOnMarketChange, loading, error } = useMarketMetrics(selectedModelId);
 
     if (loading || !metrics && !error) {
         return (
@@ -53,8 +53,9 @@ export default function MetricsGrid() {
             <MetricCard
                 title="Days on Market"
                 value={metrics.avgDaysOnMarket}
-                change={0} // Mock data doesn't provide DOM change, defaults to 0
-                trend={metrics.trendDirection === 'up' ? 'down' : 'up'} // Invert for "bad" up? simplified for now
+                change={daysOnMarketChange}
+                trend={daysOnMarketChange > 0 ? 'up' : daysOnMarketChange < 0 ? 'down' : 'stable'}
+                inverse={true}
             />
         </dl>
     );
