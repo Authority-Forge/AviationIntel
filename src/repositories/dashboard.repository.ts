@@ -15,6 +15,7 @@ import {
 } from '@/lib/schemas';
 
 export interface DashboardRepository {
+    checkHealth(): Promise<boolean>;
     getUtilization(modelId: string): Promise<UtilizationMetric[]>;
     getMonthlyUtilization(modelId: string): Promise<MonthlyUtilization[]>;
     getFleetAge(modelId: string): Promise<FleetAgeMetric[]>;
@@ -24,6 +25,19 @@ export interface DashboardRepository {
 }
 
 export class SupabaseDashboardRepository implements DashboardRepository {
+    async checkHealth(): Promise<boolean> {
+        try {
+            // Lightweight check to verify connection
+            const { error } = await supabase
+                .from('aggregated_metrics')
+                .select('*', { count: 'exact', head: true });
+
+            return !error;
+        } catch {
+            return false;
+        }
+    }
+
     async getUtilization(modelId: string): Promise<UtilizationMetric[]> {
         const { data, error } = await supabase
             .from('aggregated_metrics')
@@ -120,8 +134,8 @@ export class SupabaseDashboardRepository implements DashboardRepository {
             .single();
 
         if (error) {
-             if (error.code === 'PGRST116') return null; // No rows found
-             throw error;
+            if (error.code === 'PGRST116') return null; // No rows found
+            throw error;
         }
 
         // Map snake_case DB columns to camelCase schema fields

@@ -23,26 +23,29 @@ export default async function DashboardPage() {
     let marketMetrics = getLatestMetrics('550e8400-e29b-41d4-a716-446655440001');
 
     try {
-        const [util, month, fleet, charter, operator, metrics] = await Promise.all([
-            dashboardService.getUtilization(),
-            dashboardService.getMonthlyUtilization(),
-            dashboardService.getFleetAge(),
-            dashboardService.getCharterMix(),
-            dashboardService.getOperatorConcentration(),
-            dashboardService.getMarketMetrics()
-        ]);
+        const isConnected = await dashboardService.checkHealth();
 
-        // If Supabase returns empty arrays (e.g. no connection or no data), keep mocks for now
-        // In production we would check specifically for connection presence
-        if (util.length > 0) utilizationData = util;
-        if (month.length > 0) monthlyUtilization = month;
-        if (fleet.length > 0) fleetAgeData = fleet;
-        if (charter.length > 0) charterData = charter;
-        if (operator.length > 0) operatorData = operator;
-        if (metrics) marketMetrics = metrics;
+        if (isConnected) {
+            const [util, month, fleet, charter, operator, metrics] = await Promise.all([
+                dashboardService.getUtilization(),
+                dashboardService.getMonthlyUtilization(),
+                dashboardService.getFleetAge(),
+                dashboardService.getCharterMix(),
+                dashboardService.getOperatorConcentration(),
+                dashboardService.getMarketMetrics()
+            ]);
 
+            utilizationData = util;
+            monthlyUtilization = month;
+            fleetAgeData = fleet;
+            charterData = charter;
+            operatorData = operator;
+            marketMetrics = metrics;
+        } else {
+            console.warn('Database not connected. Using mock data.');
+        }
     } catch (error) {
-        console.warn('Supabase Connection Failed: Using Mock Data Fallback', sanitizeError(error));
+        console.warn('Supabase Data Fetch Failed: Using Mock Data Fallback', sanitizeError(error));
         // Proceed with mocks
     }
 
