@@ -20,7 +20,7 @@ export default async function DashboardPage() {
     let operatorData = mockOperator;
 
     try {
-        const isConnected = await dashboardService.checkConnection();
+        const isConnected = await dashboardService.checkHealth();
 
         if (isConnected) {
             const [util, month, fleet, charter, operator] = await Promise.all([
@@ -39,7 +39,6 @@ export default async function DashboardPage() {
         } else {
             console.warn('Database not connected. Using mock data.');
         }
-
     } catch (error) {
         console.warn('Supabase Data Fetch Failed: Using Mock Data Fallback', sanitizeError(error));
         // Proceed with mocks
