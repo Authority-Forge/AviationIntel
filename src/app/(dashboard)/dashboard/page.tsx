@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardContent from '@/components/dashboard/dashboard-content';
 import { dashboardService } from '@/services/dashboard';
+import { sanitizeError } from '@/lib/utils/logger';
 import {
     utilizationData as mockUtilization,
     monthlyUtilization as mockMonthly,
@@ -36,7 +37,7 @@ export default async function DashboardPage() {
         if (operator.length > 0) operatorData = operator;
 
     } catch (error) {
-        console.warn('Supabase Connection Failed: Using Mock Data Fallback', error);
+        console.warn('Supabase Connection Failed: Using Mock Data Fallback', sanitizeError(error));
         // Proceed with mocks
     }
 
