@@ -4,13 +4,18 @@ import {
     type MonthlyUtilization,
     type FleetAgeMetric,
     type CharterMetric,
-    type OperatorMetric
+    type OperatorMetric,
+    type MarketMetric
 } from '@/lib/schemas';
 
 const MODEL_ID = '550e8400-e29b-41d4-a716-446655440001'; // MVP: Hardcoded for now
 
 export class DashboardService {
     constructor(private repo: DashboardRepository) {}
+
+    async checkHealth(): Promise<boolean> {
+        return this.repo.checkHealth();
+    }
 
     async getUtilization(): Promise<UtilizationMetric[]> {
         return this.repo.getUtilization(MODEL_ID);
@@ -30,6 +35,10 @@ export class DashboardService {
 
     async getOperatorConcentration(): Promise<OperatorMetric[]> {
         return this.repo.getOperatorConcentration(MODEL_ID);
+    }
+
+    async getMarketMetrics(): Promise<MarketMetric | null> {
+        return this.repo.getMarketMetrics(MODEL_ID);
     }
 }
 

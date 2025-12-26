@@ -8,7 +8,8 @@ import {
     type MonthlyUtilization,
     type FleetAgeMetric,
     type CharterMetric,
-    type OperatorMetric
+    type OperatorMetric,
+    type MarketMetric
 } from '@/lib/schemas';
 
 // Sub-components
@@ -25,6 +26,7 @@ interface DashboardContentProps {
     fleetAgeData: FleetAgeMetric[];
     charterData: CharterMetric[];
     operatorData: OperatorMetric[];
+    marketMetrics?: MarketMetric;
 }
 
 export default function DashboardContent({
@@ -32,7 +34,8 @@ export default function DashboardContent({
     monthlyUtilization,
     fleetAgeData,
     charterData,
-    operatorData
+    operatorData,
+    marketMetrics
 }: DashboardContentProps) {
     const componentRef = useRef<HTMLDivElement>(null);
 
@@ -88,7 +91,7 @@ export default function DashboardContent({
                 {/* Key Metrics Grid (F3) */}
                 <section>
                     <h2 className="text-xl font-bold text-gray-900 mb-4 px-1">Market Overview</h2>
-                    <MetricsGrid />
+                    <MetricsGrid metrics={marketMetrics} />
                 </section>
 
                 {/* Utilization Charts (F4/F5) */}

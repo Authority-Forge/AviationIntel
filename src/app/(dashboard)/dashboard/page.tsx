@@ -9,6 +9,7 @@ import {
     charterData as mockCharter,
     operatorData as mockOperator
 } from '@/lib/mock-data/dashboard-data';
+import { getLatestMetrics } from '@/lib/mock-data/metrics';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,26 +19,33 @@ export default async function DashboardPage() {
     let fleetAgeData = mockFleet;
     let charterData = mockCharter;
     let operatorData = mockOperator;
+    // Fallback mock metric - use a known model ID from mocks
+    let marketMetrics = getLatestMetrics('550e8400-e29b-41d4-a716-446655440001');
 
     try {
-        const [util, month, fleet, charter, operator] = await Promise.all([
-            dashboardService.getUtilization(),
-            dashboardService.getMonthlyUtilization(),
-            dashboardService.getFleetAge(),
-            dashboardService.getCharterMix(),
-            dashboardService.getOperatorConcentration()
-        ]);
+        const isConnected = await dashboardService.checkHealth();
 
-        // If Supabase returns empty arrays (e.g. no connection or no data), keep mocks for now
-        // In production we would check specifically for connection presence
-        if (util.length > 0) utilizationData = util;
-        if (month.length > 0) monthlyUtilization = month;
-        if (fleet.length > 0) fleetAgeData = fleet;
-        if (charter.length > 0) charterData = charter;
-        if (operator.length > 0) operatorData = operator;
+        if (isConnected) {
+            const [util, month, fleet, charter, operator, metrics] = await Promise.all([
+                dashboardService.getUtilization(),
+                dashboardService.getMonthlyUtilization(),
+                dashboardService.getFleetAge(),
+                dashboardService.getCharterMix(),
+                dashboardService.getOperatorConcentration(),
+                dashboardService.getMarketMetrics()
+            ]);
 
+            utilizationData = util;
+            monthlyUtilization = month;
+            fleetAgeData = fleet;
+            charterData = charter;
+            operatorData = operator;
+            marketMetrics = metrics;
+        } else {
+            console.warn('Database not connected. Using mock data.');
+        }
     } catch (error) {
-        console.warn('Supabase Connection Failed: Using Mock Data Fallback', sanitizeError(error));
+        console.warn('Supabase Data Fetch Failed: Using Mock Data Fallback', sanitizeError(error));
         // Proceed with mocks
     }
 
@@ -48,6 +56,7 @@ export default async function DashboardPage() {
             fleetAgeData={fleetAgeData}
             charterData={charterData}
             operatorData={operatorData}
+            marketMetrics={marketMetrics}
         />
     );
 }

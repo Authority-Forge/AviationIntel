@@ -1,14 +1,13 @@
 'use client';
-
-import { useModelSelection } from '@/hooks/useModelSelection';
-import { useMarketMetrics } from '@/hooks/useMarketMetrics';
+import { type MarketMetric } from '@/lib/schemas';
 import MetricCard from './metric-card';
 
-export default function MetricsGrid() {
-    const { selectedModelId } = useModelSelection();
-    const { metrics, daysOnMarketChange, loading, error } = useMarketMetrics(selectedModelId);
+interface MetricsGridProps {
+    metrics?: MarketMetric;
+}
 
-    if (loading || !metrics && !error) {
+export default function MetricsGrid({ metrics }: MetricsGridProps) {
+    if (!metrics) {
         return (
             <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {[1, 2, 3].map((i) => (
@@ -21,19 +20,8 @@ export default function MetricsGrid() {
         );
     }
 
-    if (error) {
-        return (
-            <div className="rounded-md bg-red-50 p-4">
-                <div className="flex">
-                    <div className="ml-3">
-                        <h3 className="text-sm font-medium text-red-800">Failed to load metrics</h3>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    if (!metrics) return null;
+    // TODO: Calculate daysOnMarketChange from historical data when available
+    const daysOnMarketChange = 0;
 
     return (
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

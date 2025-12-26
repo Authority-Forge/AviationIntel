@@ -79,7 +79,31 @@ ALTER TABLE signal_states ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read access" ON signal_states FOR SELECT USING (true);
 
 
+-- 5. MARKET METRICS (Time-Series Snapshot)
+-- Stores complex market metrics for the grid
+CREATE TABLE market_metrics (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    model_id UUID REFERENCES aircraft_models(id) ON DELETE CASCADE,
+    period_date DATE NOT NULL,
+    asking_price_vs_market NUMERIC NOT NULL,
+    residual_value_strength NUMERIC NOT NULL, -- 0-100
+    market_activity_score NUMERIC NOT NULL, -- 0-100
+    avg_asking_price NUMERIC NOT NULL,
+    avg_days_on_market NUMERIC NOT NULL,
+    active_listings INTEGER NOT NULL,
+    trend_direction TEXT NOT NULL CHECK (trend_direction IN ('up', 'down', 'stable')),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable RLS
+ALTER TABLE market_metrics ENABLE ROW LEVEL SECURITY;
+
+-- Create Policies
+CREATE POLICY "Allow public read access" ON market_metrics FOR SELECT USING (true);
+
+
 -- INDICES for Performance
 CREATE INDEX idx_metrics_model_date ON aggregated_metrics(model_id, period_date);
 CREATE INDEX idx_distributions_model_type ON distributions(model_id, analysis_type);
 CREATE INDEX idx_signals_model ON signal_states(model_id);
+CREATE INDEX idx_market_metrics_model_date ON market_metrics(model_id, period_date);
