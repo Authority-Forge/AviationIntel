@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase/client';
+import { createSupabaseClient } from '@/lib/supabase/server-client';
 import {
     UtilizationMetricSchema,
     MonthlyUtilizationSchema,
@@ -17,6 +17,8 @@ const MODEL_ID = '550e8400-e29b-41d4-a716-446655440001'; // MVP: Hardcoded for n
 export const dashboardService = {
 
     async getUtilization(): Promise<UtilizationMetric[]> {
+        // SENTINEL: Use fresh client for each request to prevent session leakage
+        const supabase = createSupabaseClient();
         const { data, error } = await supabase
             .from('aggregated_metrics')
             .select('period_date, value')
@@ -33,6 +35,8 @@ export const dashboardService = {
     },
 
     async getMonthlyUtilization(): Promise<MonthlyUtilization[]> {
+        // SENTINEL: Use fresh client for each request to prevent session leakage
+        const supabase = createSupabaseClient();
         const { data, error } = await supabase
             .from('aggregated_metrics')
             .select('period_date, value')
@@ -55,6 +59,8 @@ export const dashboardService = {
     },
 
     async getFleetAge(): Promise<FleetAgeMetric[]> {
+        // SENTINEL: Use fresh client for each request to prevent session leakage
+        const supabase = createSupabaseClient();
         const { data, error } = await supabase
             .from('distributions')
             .select('bucket_label, value, color_hex')
@@ -72,6 +78,8 @@ export const dashboardService = {
     },
 
     async getCharterMix(): Promise<CharterMetric[]> {
+        // SENTINEL: Use fresh client for each request to prevent session leakage
+        const supabase = createSupabaseClient();
         const { data, error } = await supabase
             .from('distributions')
             .select('bucket_label, value, color_hex')
@@ -88,6 +96,8 @@ export const dashboardService = {
     },
 
     async getOperatorConcentration(): Promise<OperatorMetric[]> {
+        // SENTINEL: Use fresh client for each request to prevent session leakage
+        const supabase = createSupabaseClient();
         const { data, error } = await supabase
             .from('distributions')
             .select('bucket_label, value')
