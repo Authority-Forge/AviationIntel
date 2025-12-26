@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardContent from '@/components/dashboard/dashboard-content';
 import { dashboardService } from '@/services/dashboard';
+import { cookies } from 'next/headers';
 import {
     utilizationData as mockUtilization,
     monthlyUtilization as mockMonthly,
@@ -18,13 +19,17 @@ export default async function DashboardPage() {
     let charterData = mockCharter;
     let operatorData = mockOperator;
 
+    // Sentinel: Retrieve session token to propagate authentication context
+    const cookieStore = await cookies();
+    const token = cookieStore.get('session_token')?.value;
+
     try {
         const [util, month, fleet, charter, operator] = await Promise.all([
-            dashboardService.getUtilization(),
-            dashboardService.getMonthlyUtilization(),
-            dashboardService.getFleetAge(),
-            dashboardService.getCharterMix(),
-            dashboardService.getOperatorConcentration()
+            dashboardService.getUtilization(token),
+            dashboardService.getMonthlyUtilization(token),
+            dashboardService.getFleetAge(token),
+            dashboardService.getCharterMix(token),
+            dashboardService.getOperatorConcentration(token)
         ]);
 
         // If Supabase returns empty arrays (e.g. no connection or no data), keep mocks for now

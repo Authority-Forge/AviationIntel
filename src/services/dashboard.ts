@@ -1,4 +1,5 @@
-import { supabase } from '@/lib/supabase/client';
+import { supabase as defaultClient } from '@/lib/supabase/client';
+import { createClient } from '@supabase/supabase-js';
 import {
     UtilizationMetricSchema,
     MonthlyUtilizationSchema,
@@ -14,10 +15,27 @@ import {
 
 const MODEL_ID = '550e8400-e29b-41d4-a716-446655440001'; // MVP: Hardcoded for now
 
+// Sentinel: Factory to create an authenticated client if a token is provided
+const getClient = (token?: string) => {
+    if (!token) return defaultClient;
+
+    return createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            global: {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        }
+    );
+};
+
 export const dashboardService = {
 
-    async getUtilization(): Promise<UtilizationMetric[]> {
-        const { data, error } = await supabase
+    async getUtilization(token?: string): Promise<UtilizationMetric[]> {
+        const { data, error } = await getClient(token)
             .from('aggregated_metrics')
             .select('period_date, value')
             .eq('model_id', MODEL_ID)
@@ -32,8 +50,8 @@ export const dashboardService = {
         }));
     },
 
-    async getMonthlyUtilization(): Promise<MonthlyUtilization[]> {
-        const { data, error } = await supabase
+    async getMonthlyUtilization(token?: string): Promise<MonthlyUtilization[]> {
+        const { data, error } = await getClient(token)
             .from('aggregated_metrics')
             .select('period_date, value')
             .eq('model_id', MODEL_ID)
@@ -54,8 +72,8 @@ export const dashboardService = {
         }));
     },
 
-    async getFleetAge(): Promise<FleetAgeMetric[]> {
-        const { data, error } = await supabase
+    async getFleetAge(token?: string): Promise<FleetAgeMetric[]> {
+        const { data, error } = await getClient(token)
             .from('distributions')
             .select('bucket_label, value, color_hex')
             .eq('model_id', MODEL_ID)
@@ -71,8 +89,8 @@ export const dashboardService = {
         }));
     },
 
-    async getCharterMix(): Promise<CharterMetric[]> {
-        const { data, error } = await supabase
+    async getCharterMix(token?: string): Promise<CharterMetric[]> {
+        const { data, error } = await getClient(token)
             .from('distributions')
             .select('bucket_label, value, color_hex')
             .eq('model_id', MODEL_ID)
@@ -87,8 +105,8 @@ export const dashboardService = {
         }));
     },
 
-    async getOperatorConcentration(): Promise<OperatorMetric[]> {
-        const { data, error } = await supabase
+    async getOperatorConcentration(token?: string): Promise<OperatorMetric[]> {
+        const { data, error } = await getClient(token)
             .from('distributions')
             .select('bucket_label, value')
             .eq('model_id', MODEL_ID)
