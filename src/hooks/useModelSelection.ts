@@ -12,98 +12,51 @@ const ModelIdSchema = z.string().uuid();
 export function useModelSelection() {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const isMounted = useRef(true);
 
-    const [selectedModelId, setSelectedModelId] = useState<string>(DEFAULT_MODEL_ID);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    // 1. Source of truth is the URL
+    const urlModelId = searchParams.get('model');
+    const urlValidation = ModelIdSchema.safeParse(urlModelId);
 
-    useEffect(() => {
-        isMounted.current = true;
-        return () => { isMounted.current = false; };
-    }, []);
+    // 2. Determine selected ID
+    let selectedModelId = DEFAULT_MODEL_ID;
+    if (urlValidation.success && aircraftModels.some(m => m.id === urlValidation.data)) {
+        selectedModelId = urlValidation.data;
+    }
 
-    useEffect(() => {
-        try {
-            // 1. Check URL first
-            const urlModelId = searchParams.get('model');
-            const urlValidation = ModelIdSchema.safeParse(urlModelId);
-
-            // 2. Check localStorage
-            const storedModelId = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
-            const storageValidation = ModelIdSchema.safeParse(storedModelId);
-
-            // 3. Determine initial model
-            let initialId = DEFAULT_MODEL_ID;
-
-            if (urlValidation.success && aircraftModels.find(m => m.id === urlValidation.data)) {
-                initialId = urlValidation.data;
-            } else if (storageValidation.success && aircraftModels.find(m => m.id === storageValidation.data)) {
-                initialId = storageValidation.data;
-            }
-
-            if (isMounted.current) {
-                setSelectedModelId(initialId);
-                setLoading(false);
-            }
-        } catch (e) {
-            console.error('Error determining model selection');
-            if (isMounted.current) {
-                setError('Failed to load selection');
-                setLoading(false);
-            }
-        }
-
-        const handleStorageChange = (e: StorageEvent) => {
-            if (e.key === STORAGE_KEY && e.newValue) {
-                const validation = ModelIdSchema.safeParse(e.newValue);
-                if (validation.success && aircraftModels.find(m => m.id === validation.data)) {
-                    setSelectedModelId(validation.data);
-                }
-            }
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-        return () => {
-            isMounted.current = false;
-            window.removeEventListener('storage', handleStorageChange);
-        };
-    }, [searchParams]);
-
+    // 3. Sync with localStorage on change (via handleModelChange)
     const handleModelChange = (modelId: string) => {
         const validation = ModelIdSchema.safeParse(modelId);
-        if (!validation.success) {
-            console.warn('Invalid model selection attempt');
-            return;
-        }
+        if (!validation.success) return;
 
-        // Verify model exists in our list (using strict mock data source)
-        if (!aircraftModels.find(m => m.id === modelId)) {
-            setError('Invalid model ID');
-            return;
-        }
+        if (!aircraftModels.some(m => m.id === modelId)) return;
 
-        if (isMounted.current) {
-            setSelectedModelId(modelId);
-        }
-
+        // Save to storage for next session
         try {
             localStorage.setItem(STORAGE_KEY, modelId);
-        } catch (e) {
-            console.error('Storage quota exceeded or disabled');
-        }
+        } catch (e) { }
 
+        // Update URL
         const params = new URLSearchParams(searchParams.toString());
         params.set('model', modelId);
         router.push(`?${params.toString()}`);
     };
 
+    // 4. Initial sync: if URL is empty, try localStorage
+    useEffect(() => {
+        if (!urlModelId) {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored && aircraftModels.some(m => m.id === stored)) {
+                handleModelChange(stored);
+            }
+        }
+    }, []); // Only on mount
+
     return {
         selectedModelId,
         setSelectedModelId: handleModelChange,
-        models: aircraftModels, // Pass raw models, component can filter
-        loading,
-        error,
+        models: aircraftModels,
+        loading: false,
+        error: null,
         selectedModel: aircraftModels.find(m => m.id === selectedModelId)
     };
 }

@@ -1,0 +1,74 @@
+
+> aviation-platform@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.1 (Turbopack)
+- Environments: .env.local
+
+ΓÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 2 errors:
+./src/components/dashboard/model-selector/index.tsx:5:1
+Export FixedSizeList doesn't exist in target module
+  3 | import { useState, useRef, useMemo, useEffect } from 'react';
+  4 | import { useModelSelection } from '@/hooks/useModelSelection';
+> 5 | import { FixedSizeList as List } from 'react-window';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { ChevronDown, Check, Search, AlertCircle } from 'lucide-react';
+  7 | import clsx from 'clsx';
+  8 | import { twMerge } from 'tailwind-merge';
+
+The export FixedSizeList was not found in module [project]/node_modules/react-window/dist/react-window.js [app-client] (ecmascript).
+Did you mean to import getScrollbarSize?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/dashboard/model-selector/index.tsx [Client Component Browser]
+    ./src/components/layout/Header.tsx [Client Component Browser]
+    ./src/components/layout/DashboardLayout.tsx [Client Component Browser]
+    ./src/components/layout/DashboardLayout.tsx [Server Component]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/dashboard/model-selector/index.tsx [Client Component SSR]
+    ./src/components/layout/Header.tsx [Client Component SSR]
+    ./src/components/layout/DashboardLayout.tsx [Client Component SSR]
+    ./src/components/layout/DashboardLayout.tsx [Server Component]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+
+./src/components/dashboard/model-selector/index.tsx:5:1
+Export FixedSizeList doesn't exist in target module
+  3 | import { useState, useRef, useMemo, useEffect } from 'react';
+  4 | import { useModelSelection } from '@/hooks/useModelSelection';
+> 5 | import { FixedSizeList as List } from 'react-window';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { ChevronDown, Check, Search, AlertCircle } from 'lucide-react';
+  7 | import clsx from 'clsx';
+  8 | import { twMerge } from 'tailwind-merge';
+
+The export FixedSizeList was not found in module [project]/node_modules/react-window/dist/react-window.js [app-ssr] (ecmascript).
+Did you mean to import getScrollbarSize?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/dashboard/model-selector/index.tsx [Client Component Browser]
+    ./src/components/layout/Header.tsx [Client Component Browser]
+    ./src/components/layout/DashboardLayout.tsx [Client Component Browser]
+    ./src/components/layout/DashboardLayout.tsx [Server Component]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/dashboard/model-selector/index.tsx [Client Component SSR]
+    ./src/components/layout/Header.tsx [Client Component SSR]
+    ./src/components/layout/DashboardLayout.tsx [Client Component SSR]
+    ./src/components/layout/DashboardLayout.tsx [Server Component]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+
+    at <unknown> (./src/components/dashboard/model-selector/index.tsx:5:1)
+    at <unknown> (./src/components/dashboard/model-selector/index.tsx:5:1)

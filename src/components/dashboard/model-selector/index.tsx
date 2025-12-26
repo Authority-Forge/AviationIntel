@@ -2,7 +2,7 @@
 
 import { useState, useRef, useMemo, useEffect } from 'react';
 import { useModelSelection } from '@/hooks/useModelSelection';
-import { FixedSizeList as List } from 'react-window';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { ChevronDown, Check, Search, AlertCircle } from 'lucide-react';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -13,6 +13,7 @@ export default function ModelSelector() {
     const [searchTerm, setSearchTerm] = useState('');
     const dropdownRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const parentRef = useRef<HTMLDivElement>(null);
 
     // Filter models
     const filteredModels = useMemo(() => {
@@ -21,6 +22,13 @@ export default function ModelSelector() {
             model.manufacturer.toLowerCase().includes(searchTerm.toLowerCase())
         );
     }, [models, searchTerm]);
+
+    // Virtualizer
+    const rowVirtualizer = useVirtualizer({
+        count: filteredModels.length,
+        getScrollElement: () => parentRef.current,
+        estimateSize: () => 60,
+    });
 
     // Close on click outside
     useEffect(() => {
@@ -47,29 +55,7 @@ export default function ModelSelector() {
         setSearchTerm('');
     };
 
-    const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => {
-        const model = filteredModels[index];
-        const isSelected = selectedModel?.id === model.id;
-
-        return (
-            <div
-                style={style}
-                className={clsx(
-                    "px-4 py-2 cursor-pointer flex items-center justify-between hover:bg-gray-100 transition-colors",
-                    isSelected && "bg-blue-50 text-blue-700"
-                )}
-                onClick={() => handleSelect(model.id)}
-                role="option"
-                aria-selected={isSelected}
-            >
-                <div className="flex flex-col">
-                    <span className="font-medium text-gray-900">{model.manufacturer}</span>
-                    <span className="text-sm text-gray-500">{model.name}</span>
-                </div>
-                {isSelected && <Check className="w-4 h-4 text-blue-600" />}
-            </div>
-        );
-    };
+    const items = rowVirtualizer.getVirtualItems();
 
     if (loading) {
         return (
@@ -118,16 +104,47 @@ export default function ModelSelector() {
                             />
                         </div>
                     </div>
-                    <div className="h-[300px]" role="listbox">
+                    <div
+                        ref={parentRef}
+                        className="h-[300px] overflow-y-auto"
+                        role="listbox"
+                    >
                         {filteredModels.length > 0 ? (
-                            <List
-                                height={300}
-                                itemCount={filteredModels.length}
-                                itemSize={60}
-                                width="100%"
+                            <div
+                                style={{
+                                    height: `${rowVirtualizer.getTotalSize()}px`,
+                                    width: '100%',
+                                    position: 'relative',
+                                }}
                             >
-                                {Row}
-                            </List>
+                                {items.map((virtualRow) => {
+                                    const model = filteredModels[virtualRow.index];
+                                    const isSelected = selectedModel?.id === model.id;
+                                    return (
+                                        <div
+                                            key={virtualRow.key}
+                                            data-index={virtualRow.index}
+                                            ref={rowVirtualizer.measureElement}
+                                            className={clsx(
+                                                "absolute top-0 left-0 w-full px-4 py-2 cursor-pointer flex items-center justify-between hover:bg-gray-100 transition-colors",
+                                                isSelected && "bg-blue-50 text-blue-700"
+                                            )}
+                                            style={{
+                                                transform: `translateY(${virtualRow.start}px)`,
+                                            }}
+                                            onClick={() => handleSelect(model.id)}
+                                            role="option"
+                                            aria-selected={isSelected}
+                                        >
+                                            <div className="flex flex-col">
+                                                <span className="font-medium text-gray-900">{model.manufacturer}</span>
+                                                <span className="text-sm text-gray-500">{model.name}</span>
+                                            </div>
+                                            {isSelected && <Check className="w-4 h-4 text-blue-600" />}
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         ) : (
                             <div className="p-4 text-center text-gray-500 text-sm">
                                 No models found

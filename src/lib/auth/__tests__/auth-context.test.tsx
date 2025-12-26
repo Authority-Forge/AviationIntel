@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { AuthProvider, useAuth } from '../auth-context';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createBrowserClient } from '@supabase/ssr';
 
 // Mock Next.js router
 jest.mock('next/navigation', () => ({
@@ -11,8 +11,8 @@ jest.mock('next/navigation', () => ({
 }));
 
 // Mock Supabase
-jest.mock('@supabase/auth-helpers-nextjs', () => ({
-    createClientComponentClient: jest.fn(),
+jest.mock('@supabase/ssr', () => ({
+    createBrowserClient: jest.fn(),
 }));
 
 describe('F1: Auth Context (Session & Logout)', () => {
@@ -27,7 +27,7 @@ describe('F1: Auth Context (Session & Logout)', () => {
     };
 
     beforeEach(() => {
-        (createClientComponentClient as jest.Mock).mockReturnValue(mockSupabase);
+        (createBrowserClient as jest.Mock).mockReturnValue(mockSupabase);
         jest.clearAllMocks();
     });
 

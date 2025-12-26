@@ -1,27 +1,32 @@
-import { useMemo } from 'react';
-import { getPriceDistribution } from '@/lib/mock-data/metrics';
-import { PriceDistributionSchema, type PriceBucket } from '@/lib/schemas';
+import { useState, useEffect } from 'react';
+import { distributionService } from '@/services/distribution';
+import { type PriceBucket } from '@/lib/schemas';
 
 export function usePriceDistribution(modelId: string | null) {
-    const { data, error } = useMemo(() => {
-        if (!modelId) return { data: null, error: null };
+    const [data, setData] = useState<PriceBucket[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-        const rawData = getPriceDistribution(modelId);
-        if (!rawData) return { data: null, error: 'No data found' };
+    useEffect(() => {
+        async function fetchData() {
+            if (!modelId) return;
 
-        const result = PriceDistributionSchema.safeParse(rawData);
+            setLoading(true);
+            setError(null);
 
-        if (!result.success) {
-            console.error('Distribution Validation Error:', result.error);
-            return { data: null, error: 'Data validation failed' };
+            try {
+                const result = await distributionService.getPriceDistribution(modelId);
+                setData(result);
+            } catch (err) {
+                console.error('Failed to fetch price distribution:', err);
+                setError('Failed to load distribution data');
+            } finally {
+                setLoading(false);
+            }
         }
 
-        return { data: result.data, error: null };
+        fetchData();
     }, [modelId]);
 
-    return {
-        data,
-        loading: false, // Mock is instant
-        error
-    };
+    return { data, loading, error };
 }

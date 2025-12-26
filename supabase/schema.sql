@@ -6,6 +6,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE aircraft_models (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name TEXT NOT NULL,
+    manufacturer TEXT NOT NULL,
     category TEXT NOT NULL CHECK (category IN ('Light', 'Midsize', 'Super-Midsize', 'Heavy', 'Ultra-Long')),
     manufactured_start INTEGER,
     manufactured_end INTEGER, -- NULL means 'Present'
@@ -31,7 +32,7 @@ CREATE TABLE aggregated_metrics (
 CREATE TABLE distributions (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     model_id UUID REFERENCES aircraft_models(id) ON DELETE CASCADE,
-    analysis_type TEXT NOT NULL CHECK (analysis_type IN ('fleet_age', 'charter_mix', 'operator_concentration', 'market_geography')),
+    analysis_type TEXT NOT NULL CHECK (analysis_type IN ('fleet_age', 'charter_mix', 'operator_concentration', 'market_geography', 'price_distribution')),
     bucket_label TEXT NOT NULL, -- e.g., "0-2 Years", "NetJets", "North America"
     value NUMERIC NOT NULL, -- Count or Percentage
     color_hex TEXT, -- Optional override, UI usually handles this

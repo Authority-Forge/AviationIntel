@@ -12,15 +12,13 @@ import {
     type OperatorMetric
 } from '@/lib/schemas';
 
-const MODEL_ID = '550e8400-e29b-41d4-a716-446655440001'; // MVP: Hardcoded for now
-
 export const dashboardService = {
 
-    async getUtilization(): Promise<UtilizationMetric[]> {
+    async getUtilization(modelId: string): Promise<UtilizationMetric[]> {
         const { data, error } = await supabase
             .from('aggregated_metrics')
             .select('period_date, value')
-            .eq('model_id', MODEL_ID)
+            .eq('model_id', modelId)
             .eq('metric_type', 'utilization_annual')
             .order('period_date', { ascending: true });
 
@@ -32,11 +30,11 @@ export const dashboardService = {
         }));
     },
 
-    async getMonthlyUtilization(): Promise<MonthlyUtilization[]> {
+    async getMonthlyUtilization(modelId: string): Promise<MonthlyUtilization[]> {
         const { data, error } = await supabase
             .from('aggregated_metrics')
             .select('period_date, value')
-            .eq('model_id', MODEL_ID)
+            .eq('model_id', modelId)
             .eq('metric_type', 'utilization_monthly')
             .order('period_date', { ascending: true });
 
@@ -54,11 +52,11 @@ export const dashboardService = {
         }));
     },
 
-    async getFleetAge(): Promise<FleetAgeMetric[]> {
+    async getFleetAge(modelId: string): Promise<FleetAgeMetric[]> {
         const { data, error } = await supabase
             .from('distributions')
             .select('bucket_label, value, color_hex')
-            .eq('model_id', MODEL_ID)
+            .eq('model_id', modelId)
             .eq('analysis_type', 'fleet_age')
             .order('sort_order', { ascending: true });
 
@@ -71,11 +69,11 @@ export const dashboardService = {
         }));
     },
 
-    async getCharterMix(): Promise<CharterMetric[]> {
+    async getCharterMix(modelId: string): Promise<CharterMetric[]> {
         const { data, error } = await supabase
             .from('distributions')
             .select('bucket_label, value, color_hex')
-            .eq('model_id', MODEL_ID)
+            .eq('model_id', modelId)
             .eq('analysis_type', 'charter_mix');
 
         if (error) throw error;
@@ -87,12 +85,13 @@ export const dashboardService = {
         }));
     },
 
-    async getOperatorConcentration(): Promise<OperatorMetric[]> {
+    async getOperatorConcentration(modelId: string): Promise<OperatorMetric[]> {
         const { data, error } = await supabase
             .from('distributions')
             .select('bucket_label, value')
-            .eq('model_id', MODEL_ID)
-            .eq('analysis_type', 'operator_concentration');
+            .eq('model_id', modelId)
+            .eq('analysis_type', 'operator_concentration')
+            .order('sort_order', { ascending: true });
 
         if (error) throw error;
 

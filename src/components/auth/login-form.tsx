@@ -44,7 +44,7 @@ export default function LoginForm() {
                     <input
                         id="email"
                         type="email"
-                        autoComplete="email"
+                        autoComplete="off"
                         {...register('email')}
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
                     />
@@ -62,7 +62,7 @@ export default function LoginForm() {
                     <input
                         id="password"
                         type="password"
-                        autoComplete="current-password"
+                        autoComplete="new-password"
                         {...register('password')}
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
                     />

@@ -3,19 +3,23 @@ import userEvent from '@testing-library/user-event';
 import ModelSelector from '../model-selector';
 import { useModelSelection } from '@/hooks/useModelSelection';
 
-// Mock react-window to verify virtualization logic without browser layout engine
-jest.mock('react-window', () => ({
-    FixedSizeList: ({ children, itemCount }: any) => {
-        // Render only a subset to simulate virtualization
-        const visibleCount = Math.min(itemCount, 20);
-        return (
-            <div data-testid="virtual-list">
-                {Array.from({ length: visibleCount }).map((_, i) =>
-                    children({ index: i, style: {} })
-                )}
-            </div>
-        );
-    }
+// Mock @tanstack/react-virtual
+jest.mock('@tanstack/react-virtual', () => ({
+    useVirtualizer: ({ count, getScrollElement }: any) => ({
+        getVirtualItems: () => {
+            // Mock rendering a subset of items
+            const visibleCount = Math.min(count, 20);
+            return Array.from({ length: visibleCount }).map((_, i) => ({
+                index: i,
+                key: i,
+                start: i * 60,
+                size: 60,
+                measureElement: jest.fn(),
+            }));
+        },
+        getTotalSize: () => count * 60,
+        measureElement: jest.fn(),
+    }),
 }));
 
 // Mock the hook

@@ -1,10 +1,10 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { User, Session } from '@supabase/supabase-js';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase/client';
+import { Session, User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
-import { LoginInput, RegisterInput } from '@/lib/schemas/auth';
+import { LoginInput, RegisterInput } from '../schemas/auth';
 
 interface AuthContextType {
     user: User | null;
@@ -22,60 +22,51 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [session, setSession] = useState<Session | null>(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
-    const supabase = createClientComponentClient();
 
     useEffect(() => {
-        const initSession = async () => {
-            try {
-                const { data: { session } } = await supabase.auth.getSession();
-                setSession(session);
-                setUser(session?.user ?? null);
-            } catch (error) {
-                console.error('Session init error:', error);
-            } finally {
-                setLoading(false);
-            }
+        const getSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            setSession(session);
+            setUser(session?.user ?? null);
+            setLoading(false);
         };
 
-        initSession();
+        getSession();
 
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session);
             setUser(session?.user ?? null);
             setLoading(false);
-            if (_event === 'SIGNED_IN') router.refresh();
+            if (!session) {
+                // router.push('/login'); // Optional automatic redirect logic
+            }
         });
 
         return () => subscription.unsubscribe();
-    }, [router, supabase]);
+    }, [supabase, router]);
 
     const signIn = async ({ email, password }: LoginInput) => {
-        setLoading(true);
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) {
-            setLoading(false); // Reset loading on error
-            throw error;
-        }
-        // Success handled by subscription
+        const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+        if (error) throw error;
+        router.refresh();
     };
 
     const signUp = async ({ email, password }: RegisterInput) => {
-        setLoading(true);
         const { error } = await supabase.auth.signUp({
             email,
             password,
-            options: {
-                emailRedirectTo: `${window.location.origin}/auth/callback`,
-            },
         });
-        if (error) {
-            setLoading(false);
-            throw error;
-        }
+        if (error) throw error;
+        router.refresh();
     };
 
     const signOut = async () => {
-        await supabase.auth.signOut();
+        const { error } = await supabase.auth.signOut();
+        if (error) throw error;
+        router.push('/login');
         router.refresh();
     };
 
@@ -86,10 +77,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     );
 }
 
-export function useAuth() {
+export const useAuth = () => {
     const context = useContext(AuthContext);
     if (context === undefined) {
         throw new Error('useAuth must be used within an AuthProvider');
     }
     return context;
-}
+};
