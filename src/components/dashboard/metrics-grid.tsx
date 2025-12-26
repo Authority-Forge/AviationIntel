@@ -1,5 +1,4 @@
 'use client';
-
 import { type MarketMetric } from '@/lib/schemas';
 import MetricCard from './metric-card';
 
@@ -21,6 +20,9 @@ export default function MetricsGrid({ metrics }: MetricsGridProps) {
         );
     }
 
+    // TODO: Calculate daysOnMarketChange from historical data when available
+    const daysOnMarketChange = 0;
+
     return (
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <MetricCard
@@ -39,8 +41,9 @@ export default function MetricsGrid({ metrics }: MetricsGridProps) {
             <MetricCard
                 title="Days on Market"
                 value={metrics.avgDaysOnMarket}
-                change={0} // Mock data doesn't provide DOM change, defaults to 0
-                trend={metrics.trendDirection === 'up' ? 'down' : 'up'} // Invert for "bad" up? simplified for now
+                change={daysOnMarketChange}
+                trend={daysOnMarketChange > 0 ? 'up' : daysOnMarketChange < 0 ? 'down' : 'stable'}
+                inverse={true}
             />
         </dl>
     );
