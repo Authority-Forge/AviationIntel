@@ -1,17 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { AircraftModel, aircraftModels, DEFAULT_MODEL_ID } from '@/lib/mock-data/models';
+import { aircraftModels, DEFAULT_MODEL_ID } from '@/lib/mock-data/models';
 import { z } from 'zod';
-import { ModelSelectionSchema } from '@/lib/schemas';
+import { aircraftModelSchema } from '@/lib/schemas/model';
 
 const STORAGE_KEY = 'aviation_platform_selected_model';
+
+// Validation schema for singular model ID (UUID)
+const ModelIdSchema = z.string().uuid();
 
 export function useModelSelection() {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const isMounted = useRef(true); // Prevent state updates on unmount (memory leak prevention)
+    const isMounted = useRef(true);
 
-    // State for selected model ID
     const [selectedModelId, setSelectedModelId] = useState<string>(DEFAULT_MODEL_ID);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -25,13 +27,11 @@ export function useModelSelection() {
         try {
             // 1. Check URL first
             const urlModelId = searchParams.get('model');
-            // SECURITY: Sanitize input with Zod
-            const urlValidation = ModelSelectionSchema.safeParse(urlModelId);
+            const urlValidation = ModelIdSchema.safeParse(urlModelId);
 
-            // 2. Check localStorage if no valid URL param
-            // SECURITY: Validate storage content to prevent injections
+            // 2. Check localStorage
             const storedModelId = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
-            const storageValidation = ModelSelectionSchema.safeParse(storedModelId);
+            const storageValidation = ModelIdSchema.safeParse(storedModelId);
 
             // 3. Determine initial model
             let initialId = DEFAULT_MODEL_ID;
@@ -47,7 +47,6 @@ export function useModelSelection() {
                 setLoading(false);
             }
         } catch (e) {
-            // SECURITY: Generic error logging, no PII
             console.error('Error determining model selection');
             if (isMounted.current) {
                 setError('Failed to load selection');
@@ -55,11 +54,9 @@ export function useModelSelection() {
             }
         }
 
-        // Listen for storage events (cross-tab sync)
         const handleStorageChange = (e: StorageEvent) => {
             if (e.key === STORAGE_KEY && e.newValue) {
-                // Validate new value
-                const validation = ModelSelectionSchema.safeParse(e.newValue);
+                const validation = ModelIdSchema.safeParse(e.newValue);
                 if (validation.success && aircraftModels.find(m => m.id === validation.data)) {
                     setSelectedModelId(validation.data);
                 }
@@ -73,18 +70,16 @@ export function useModelSelection() {
         };
     }, [searchParams]);
 
-    // Handle selection change
     const handleModelChange = (modelId: string) => {
-        // SECURITY: Validate input before processing
-        const validation = ModelSelectionSchema.safeParse(modelId);
+        const validation = ModelIdSchema.safeParse(modelId);
         if (!validation.success) {
             console.warn('Invalid model selection attempt');
             return;
         }
 
-        // Validate model exists in allowed set
+        // Verify model exists in our list (using strict mock data source)
         if (!aircraftModels.find(m => m.id === modelId)) {
-            setError(`Invalid model ID`);
+            setError('Invalid model ID');
             return;
         }
 
@@ -92,14 +87,12 @@ export function useModelSelection() {
             setSelectedModelId(modelId);
         }
 
-        // Update localStorage
         try {
             localStorage.setItem(STORAGE_KEY, modelId);
         } catch (e) {
             console.error('Storage quota exceeded or disabled');
         }
 
-        // Update URL
         const params = new URLSearchParams(searchParams.toString());
         params.set('model', modelId);
         router.push(`?${params.toString()}`);
@@ -108,7 +101,7 @@ export function useModelSelection() {
     return {
         selectedModelId,
         setSelectedModelId: handleModelChange,
-        models: aircraftModels,
+        models: aircraftModels, // Pass raw models, component can filter
         loading,
         error,
         selectedModel: aircraftModels.find(m => m.id === selectedModelId)
