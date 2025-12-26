@@ -84,5 +84,17 @@ export const OperatorMetricSchema = z.object({
 });
 export type OperatorMetric = z.infer<typeof OperatorMetricSchema>;
 
+// Aircraft Listing Schema (F9)
+export const AircraftListingSchema = z.object({
+    id: z.string(),
+    serialNumber: z.string(),
+    year: z.number(),
+    model: z.string(),
+    price: z.number(),
+    hours: z.number(),
+    location: z.string(),
+    status: z.enum(['active', 'pending', 'sold', 'withdrawn']),
+    daysOnMarket: z.number(),
+});
 
-
+export type AircraftListing = z.infer<typeof AircraftListingSchema>;

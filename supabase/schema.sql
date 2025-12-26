@@ -80,7 +80,7 @@ CREATE POLICY "Allow public read access" ON signal_states FOR SELECT USING (true
 
 
 -- 5. MARKET METRICS (Time-Series Snapshot)
--- Stores complex market metrics for the grid
+-- Stores aggregated market metrics for the overview grid
 CREATE TABLE market_metrics (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     model_id UUID REFERENCES aircraft_models(id) ON DELETE CASCADE,
@@ -102,8 +102,31 @@ ALTER TABLE market_metrics ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read access" ON market_metrics FOR SELECT USING (true);
 
 
+-- 6. LISTINGS (Market Inventory)
+-- Stores individual aircraft listings for detailed market inventory
+CREATE TABLE listings (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    model_id UUID REFERENCES aircraft_models(id) ON DELETE CASCADE,
+    serial_number TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    price NUMERIC NOT NULL,
+    hours NUMERIC NOT NULL,
+    location TEXT NOT NULL,
+    status TEXT NOT NULL CHECK (status IN ('active', 'pending', 'sold', 'withdrawn')),
+    days_on_market INTEGER NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable RLS
+ALTER TABLE listings ENABLE ROW LEVEL SECURITY;
+
+-- Create Policies
+CREATE POLICY "Allow public read access" ON listings FOR SELECT USING (true);
+
+
 -- INDICES for Performance
 CREATE INDEX idx_metrics_model_date ON aggregated_metrics(model_id, period_date);
 CREATE INDEX idx_distributions_model_type ON distributions(model_id, analysis_type);
 CREATE INDEX idx_signals_model ON signal_states(model_id);
 CREATE INDEX idx_market_metrics_model_date ON market_metrics(model_id, period_date);
+CREATE INDEX idx_listings_model ON listings(model_id);

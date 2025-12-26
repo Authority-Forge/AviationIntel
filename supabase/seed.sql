@@ -64,7 +64,7 @@ VALUES
 ('550e8400-e29b-41d4-a716-446655440001', 'competition', 'Watch', 80, 'Praetor 600 market entry'),
 ('550e8400-e29b-41d4-a716-446655440001', 'manufacturer_support', 'Positive', 95, 'Strong OEM support network');
 
--- 5. Market Metrics (Seed Data)
+-- 5. Market Metrics (Aggregated Snapshot Data)
 INSERT INTO market_metrics (model_id, period_date, asking_price_vs_market, residual_value_strength, market_activity_score, avg_asking_price, avg_days_on_market, active_listings, trend_direction)
 VALUES
 ('550e8400-e29b-41d4-a716-446655440001', '2024-01-01', -1.8, 72, 68, 19200000, 195, 11, 'stable'),
@@ -79,3 +79,15 @@ VALUES
 ('550e8400-e29b-41d4-a716-446655440001', '2024-10-01', -2.6, 68, 74, 18500000, 210, 15, 'down'),
 ('550e8400-e29b-41d4-a716-446655440001', '2024-11-01', -2.7, 68, 73, 18400000, 212, 14, 'stable'),
 ('550e8400-e29b-41d4-a716-446655440001', '2024-12-01', -2.8, 68, 72, 18500000, 207, 14, 'stable');
+
+-- 6. Listings (Individual Aircraft Inventory)
+INSERT INTO listings (id, model_id, serial_number, year, price, hours, location, status, days_on_market)
+VALUES
+('11111111-1111-1111-1111-111111111101', '550e8400-e29b-41d4-a716-446655440001', '20638', 2017, 18500000, 1450, 'USA (NC)', 'active', 45),
+('11111111-1111-1111-1111-111111111102', '550e8400-e29b-41d4-a716-446655440001', '20712', 2018, 19200000, 1100, 'USA (TX)', 'active', 12),
+('11111111-1111-1111-1111-111111111103', '550e8400-e29b-41d4-a716-446655440001', '20555', 2015, 16800000, 2200, 'UK', 'pending', 120),
+('11111111-1111-1111-1111-111111111104', '550e8400-e29b-41d4-a716-446655440001', '20801', 2019, 21500000, 850, 'USA (FL)', 'active', 5),
+('11111111-1111-1111-1111-111111111105', '550e8400-e29b-41d4-a716-446655440001', '20444', 2014, 15900000, 3100, 'Germany', 'sold', 180),
+('11111111-1111-1111-1111-111111111106', '550e8400-e29b-41d4-a716-446655440001', '20902', 2021, 23500000, 450, 'USA (CA)', 'active', 3),
+('11111111-1111-1111-1111-111111111107', '550e8400-e29b-41d4-a716-446655440001', '20610', 2016, 17200000, 1900, 'UAE', 'active', 95),
+('11111111-1111-1111-1111-111111111108', '550e8400-e29b-41d4-a716-446655440001', '20755', 2018, 19800000, 980, 'USA (NY)', 'active', 22);

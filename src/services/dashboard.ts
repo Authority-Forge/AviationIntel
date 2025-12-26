@@ -5,6 +5,7 @@ import {
     type FleetAgeMetric,
     type CharterMetric,
     type OperatorMetric,
+    type AircraftListing,
     type MarketMetric
 } from '@/lib/schemas';
 
@@ -35,6 +36,10 @@ export class DashboardService {
 
     async getOperatorConcentration(): Promise<OperatorMetric[]> {
         return this.repo.getOperatorConcentration(MODEL_ID);
+    }
+
+    async getMarketListings(): Promise<AircraftListing[]> {
+        return this.repo.getMarketListings(MODEL_ID);
     }
 
     async getMarketMetrics(): Promise<MarketMetric | null> {

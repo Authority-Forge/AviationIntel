@@ -9,6 +9,7 @@ import {
     type FleetAgeMetric,
     type CharterMetric,
     type OperatorMetric,
+    type AircraftListing,
     type MarketMetric
 } from '@/lib/schemas';
 
@@ -26,6 +27,7 @@ interface DashboardContentProps {
     fleetAgeData: FleetAgeMetric[];
     charterData: CharterMetric[];
     operatorData: OperatorMetric[];
+    listings?: AircraftListing[];
     marketMetrics?: MarketMetric;
 }
 
@@ -35,6 +37,7 @@ export default function DashboardContent({
     fleetAgeData,
     charterData,
     operatorData,
+    listings = [],
     marketMetrics
 }: DashboardContentProps) {
     const componentRef = useRef<HTMLDivElement>(null);
@@ -113,7 +116,7 @@ export default function DashboardContent({
                 <SignalPanel />
 
                 {/* Aircraft Table (F9) */}
-                <AircraftTable />
+                <AircraftTable listings={listings} />
 
                 {/* Methodology / Footer */}
                 <section className="bg-white rounded-lg shadow-sm p-8 border border-gray-100 break-inside-avoid text-sm text-gray-500">

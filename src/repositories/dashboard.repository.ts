@@ -5,12 +5,14 @@ import {
     FleetAgeMetricSchema,
     CharterMetricSchema,
     OperatorMetricSchema,
+    AircraftListingSchema,
     MarketMetricSchema,
     type UtilizationMetric,
     type MonthlyUtilization,
     type FleetAgeMetric,
     type CharterMetric,
     type OperatorMetric,
+    type AircraftListing,
     type MarketMetric
 } from '@/lib/schemas';
 
@@ -21,6 +23,7 @@ export interface DashboardRepository {
     getFleetAge(modelId: string): Promise<FleetAgeMetric[]>;
     getCharterMix(modelId: string): Promise<CharterMetric[]>;
     getOperatorConcentration(modelId: string): Promise<OperatorMetric[]>;
+    getMarketListings(modelId: string): Promise<AircraftListing[]>;
     getMarketMetrics(modelId: string): Promise<MarketMetric | null>;
 }
 
@@ -121,6 +124,40 @@ export class SupabaseDashboardRepository implements DashboardRepository {
         return data.map(row => OperatorMetricSchema.parse({
             name: row.bucket_label,
             share: Number(row.value)
+        }));
+    }
+
+    async getMarketListings(modelId: string): Promise<AircraftListing[]> {
+        // Join with aircraft_models to get the model name
+        const { data, error } = await supabase
+            .from('listings')
+            .select(`
+                id,
+                serial_number,
+                year,
+                price,
+                hours,
+                location,
+                status,
+                days_on_market,
+                aircraft_models (
+                    name
+                )
+            `)
+            .eq('model_id', modelId);
+
+        if (error) throw error;
+
+        return data.map((row: any) => AircraftListingSchema.parse({
+            id: row.id,
+            serialNumber: row.serial_number,
+            year: row.year,
+            model: row.aircraft_models?.name || 'Unknown Model',
+            price: Number(row.price),
+            hours: Number(row.hours),
+            location: row.location,
+            status: row.status,
+            daysOnMarket: row.days_on_market
         }));
     }
 

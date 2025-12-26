@@ -10,6 +10,7 @@ import {
     operatorData as mockOperator
 } from '@/lib/mock-data/dashboard-data';
 import { getLatestMetrics } from '@/lib/mock-data/metrics';
+import { AircraftListing } from '@/lib/schemas';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,18 +22,20 @@ export default async function DashboardPage() {
     let operatorData = mockOperator;
     // Fallback mock metric - use a known model ID from mocks
     let marketMetrics = getLatestMetrics('550e8400-e29b-41d4-a716-446655440001');
+    let marketListings: AircraftListing[] = [];
 
     try {
         const isConnected = await dashboardService.checkHealth();
 
         if (isConnected) {
-            const [util, month, fleet, charter, operator, metrics] = await Promise.all([
+            const [util, month, fleet, charter, operator, metrics, listings] = await Promise.all([
                 dashboardService.getUtilization(),
                 dashboardService.getMonthlyUtilization(),
                 dashboardService.getFleetAge(),
                 dashboardService.getCharterMix(),
                 dashboardService.getOperatorConcentration(),
-                dashboardService.getMarketMetrics()
+                dashboardService.getMarketMetrics(),
+                dashboardService.getMarketListings()
             ]);
 
             utilizationData = util;
@@ -41,6 +44,7 @@ export default async function DashboardPage() {
             charterData = charter;
             operatorData = operator;
             marketMetrics = metrics;
+            marketListings = listings;
         } else {
             console.warn('Database not connected. Using mock data.');
         }
@@ -57,6 +61,7 @@ export default async function DashboardPage() {
             charterData={charterData}
             operatorData={operatorData}
             marketMetrics={marketMetrics}
+            listings={marketListings}
         />
     );
 }
